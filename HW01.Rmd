@@ -1,0 +1,84 @@
+---
+title: "Homework 01 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "09/08/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 1 Problem 4
+
+Let $E, F, G$ be three events. Find expressions for the events.
+
+## Part a
+
+Only $F$ occurs:
+
+\[E^c \cap F \cap G^c\]
+
+## Part b
+
+Both $E$ and $F$ but not $G$ occur:
+
+\[(E \cup F) \cap G^c\]
+
+## Part c
+
+At least one event occurs:
+
+\[E \cup F \cup G\]
+
+## Part d
+
+At least two events occur:
+
+\[(E \cap F) \cup(E \cap G) \cup (F \cap G)\]
+
+## Part e
+
+All three events occur:
+
+\[E \cap F \cap G\]
+
+## Part f
+
+None occurs:
+
+\[(E \cup F \cup G)^c\]
+
+## Part g
+
+At most one occurs (Also the complement of at least two):
+
+\[((E \cap F) \cup(E \cap G) \cup (F \cap G))^c\]
+
+## Part h
+
+At most two occur (Also the complement of all three):
+
+\[(E \cap F \cap G)^c\]
+
+# Chapter 1 Problem 11
+
+# Chapter 1 Problem 20
+
+# Chapter 1 Problem 21
+
+# Chapter 1 Problem 26
+
+# Chapter 1 Problem 29
+
+# Chapter 1 Problem 38
+
+# Chapter 1 Problem 42
+
+# Chapter 1 Problem 46
+
+# Chapter 2 Problem 5
+
+# Chapter 2 Problem 9
+
+# Chapter 2 Problem 10
+
+
