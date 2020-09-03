@@ -86,6 +86,16 @@ We can see that the pmf outline above is valid, because all probabilities are be
 
 # Chapter 1 Problem 20
 
+Three dice are thrown. What is the probability the same number appears on exactly two of the three dice?
+
+To solve this we can look at a sub event: the probability of a one appearing on exactly two of the three dice.
+
+There is exactly $\frac16$ ways for two of the dice to land on 1 and there is exactly $\frac56$ ways for the third die to land in order to not land on the same number. This gives us a probability of $\frac16*\frac16*\frac56 = \frac{5}{216}$ of exactly two to land on one. We can multiply the probabilities like this, because the events are independent.
+
+Since this is the exact same case for each of the six digits we can multiply the value we found by 6, or add it together six times:
+
+\[p(x) = 6*\frac{5}{216} = \frac{15}{108}\]
+
 # Chapter 1 Problem 21
 
 # Chapter 1 Problem 26
