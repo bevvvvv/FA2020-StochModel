@@ -61,6 +61,29 @@ At most two occur (Also the complement of all three):
 
 # Chapter 1 Problem 11
 
+If two fair dice are tossed, what is the probability that the sum is $i, i = 2, 3, ... 12$.
+
+Recall the pmf of a single die. The likelihood of each digit is $p(x) = \frac16$. Since each digit has an equal likelihood of returning, we only have to count the total number of ways to sum to $i$ and then divide by the total number of combinations $6 * 6 = 36$ (size of sample space) to get the probability of the event to be that sum.
+
+For example, for i = 7, we have 2 ways to get 1 and 6, 2 ways to get 2 and 5, and 2 ways to get 3 and 4. This would give i = 7 6 instances out of 36 total instances for a $p(i) = \frac16$.
+
+| i | p(i) |
+|---|------|
+| 2 | $\frac{1}{36}$|
+| 3 | $\frac{2}{36} = \frac{1}{18}$|
+| 4 | $\frac{3}{36} = \frac{1}{12}$|
+| 5 | $\frac{4}{36} = \frac19$|
+| 6 | $\frac{5}{36}$|
+| 7 | $\frac{6}{36} = \frac16$|
+| 8 | $\frac{5}{36}$|
+| 9 | $\frac{4}{36} = \frac19$|
+|10 | $\frac{3}{36} = \frac{1}{12}$|
+|11 | $\frac{2}{36} = \frac{1}{18}$|
+|12 | $\frac{1}{36}$|
+
+We can see that the pmf outline above is valid, because all probabilities are between 0 and 1, and the sum of all probabilities is 1.
+
+
 # Chapter 1 Problem 20
 
 # Chapter 1 Problem 21
