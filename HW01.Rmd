@@ -98,6 +98,30 @@ Since this is the exact same case for each of the six digits we can multiply the
 
 # Chapter 1 Problem 21
 
+Suppose that 5 percent of men and 0.25 percent of women are colorblind. A randomly chosen person is colorblind. What is the probability of this person being a male? Assume that there are an equal number of males and females.
+
+Problem Constraints:
+
+* $M := \text{Is a Male}$ 
+* $B := \text{Is Colorblind}$
+* $P(B | M) = 0.05$
+* $P(B | M^c) = 0.0025$
+* $P(M) = 0.5$
+
+We want to find $P(M | B)$. For this we can use Bayes Theorem.
+
+\[P(M|B) = \frac{P(B|M)P(M)}{P(B)}\]
+
+The law of total probability will give us:
+
+\[P(B) = P(B|M)P(M) + P(B|M^c)P(M^c) = 0.05*0.5 + 0.0025 * 0.5 = 0.02625\]
+
+We can take this back to solve:
+
+\[P(M|B) = \frac{0.05 * 0.5}{0.02625} = 0.9524\]
+
+We can conclude that the probability of a randomly chosen person being a male, given that they are colorblind, is 95.24%.
+
 # Chapter 1 Problem 26
 
 # Chapter 1 Problem 29
