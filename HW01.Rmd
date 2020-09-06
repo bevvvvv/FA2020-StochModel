@@ -212,6 +212,10 @@ Given that the random coin chosen resulted in a heads flip, there is a $\frac49 
 
 # Chapter 1 Problem 46
 
+Three prisoners are informed by their jailer that one of them has been chosen at random to be executed, and the other two are to be freed. Prisoner A asks the jailer to tell him privately which of his fellow prisoners will be set free, claiming that there would be no harm in divulging the information, wince he already knows that at leaste one will go free. The jailer refuses to answer this question, pointing out that if A knew which of his fellows were to be set free, then his own probability of being executed would rise from $\frac13$ to $\frac12$, since he would then be one of two prisoners. What do you think of the jailer's reasoning?
+
+I think that the jailer's reasoning is spot on. Without divulging any information prisoner A knows that 1 out of 3 people will be executed, but he doesn't know which. If prisoner A knows who of the others will be set free, then he now knows that 1 out of 2 people will be executed, but doesn't know which. By being told who will be set free, the total sample space is shrunk from 3 to 2 for the executed prisoner to be chosen.
+
 # Chapter 2 Problem 5
 
 # Chapter 2 Problem 9
