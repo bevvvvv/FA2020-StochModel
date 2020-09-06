@@ -311,3 +311,11 @@ So we get:
 \[p(3.5) = F(3.5) - F(3) = 1 - \frac9{10} = \frac1{10}\]
 
 # Chapter 2 Problem 10
+
+Suppose three fair dice are rolled. What is the probability at most one six appears?
+
+The probability that at most one six appears is the probability that no sixes appear plus the probability that only one six appears. We can add these two together, because they are disjoint events. Additionally we know that the three fair dice being rolled are independent events.
+
+\[P(\text{at most one six}) = P(\text{one six}) + P(\text{no sixes}) = 3(\frac16\frac56\frac56) +  \frac56\frac56\frac56 \approx 0.926\]
+
+The probability that at most one six appears is **92.6%**.
