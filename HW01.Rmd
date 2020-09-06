@@ -147,6 +147,26 @@ The probability of each pile having an ace is approximately **10.55%**.
 
 # Chapter 1 Problem 29
 
+Suppose that $P(E) = 0.6$. What can you say about $P(E | F)$?
+
+## Part a
+
+If events $E$ and $F$ are mutually exculusive, then we know that $P(E\cap F) = 0$ by definition of disjoint events. We can plug this into the formula of conditional probability:
+
+\[P(E | F) = \frac{P(E \cap F)}{P(F)} = \frac{0}{P(F)} = 0\]
+
+## Part b
+
+If $E \subset F$, then $P(E \cap F) = P(E) = 0.6$, so we can say that
+
+\[P(E | F) = \frac{P(E)}{P(F)} = \frac{0.6}{P(F)}; 0 <P(E|F) \leq1\]
+
+## Part c
+
+If $F \subset E$, then $P(E \cap F) = P(F)$, so we can say that
+
+\[P(E | F) = \frac{P(E \cap F)}{P(F)} = \frac{P(F)}{P(F)} = 1\]
+
 # Chapter 1 Problem 38
 
 # Chapter 1 Problem 42
