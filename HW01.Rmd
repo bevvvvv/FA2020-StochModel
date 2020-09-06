@@ -218,6 +218,78 @@ I think that the jailer's reasoning is spot on. Without divulging any informatio
 
 # Chapter 2 Problem 5
 
+In this exercise we have a fair die that is rolled twice. We will calculate the probabilities associated with various random variables.
+
+## Part a
+
+Calculate the probabilities for a random variable that takes on the value of the maximum value to appear in the two rolls.
+
+For each number one through six, the first roll, or the second roll would have to be the max value, and the other roll would have to be that value or less. For example, if 2 was the max value, the first or second roll would take on 2, but the other could take on 1 or 2. This gives us {(2,1), (2,2), or (1,2)} or three possibilities for a max of 2 versus 1 for a max of one. This pattern continues as the numbers grow, so 5 events for a max of 3, 7 for 4, 9 for 5, and 11 for 6. This gives us the following pmf.
+
+| i | p(i) |
+|---|------|
+| 1 | $\frac{1}{36}$|
+| 2 | $\frac{3}{36}$|
+| 3 | $\frac{5}{36}$|
+| 4 | $\frac{7}{36}$|
+| 5 | $\frac{9}{36}$|
+| 6 | $\frac{11}{36}$|
+
+## Part b
+
+Calculate the probabilites for a random variable that takes on the value of the minimum value to appear in the two rolls.
+
+The pmf for this random variable mirrors that of the previous (that represented the maximum value), which gives us the following pmf:
+
+| i | p(i) |
+|---|------|
+| 1 | $\frac{11}{36}$|
+| 2 | $\frac{9}{36}$|
+| 3 | $\frac{7}{36}$|
+| 4 | $\frac{5}{36}$|
+| 5 | $\frac{3}{36}$|
+| 6 | $\frac{1}{36}$|
+
+## Part c
+
+Calculate the probabilities for the random variable of the sum of the two rolls.
+
+This was already completed in problem 11 for chapter 1. The pmf is listed below, but look back at 1.11 for the reasoning.
+
+| i | p(i) |
+|---|------|
+| 2 | $\frac{1}{36}$|
+| 3 | $\frac{2}{36} = \frac{1}{18}$|
+| 4 | $\frac{3}{36} = \frac{1}{12}$|
+| 5 | $\frac{4}{36} = \frac19$|
+| 6 | $\frac{5}{36}$|
+| 7 | $\frac{6}{36} = \frac16$|
+| 8 | $\frac{5}{36}$|
+| 9 | $\frac{4}{36} = \frac19$|
+|10 | $\frac{3}{36} = \frac{1}{12}$|
+|11 | $\frac{2}{36} = \frac{1}{18}$|
+|12 | $\frac{1}{36}$|
+
+## Part d
+
+Calculate the probabilities for the random variable for the value of the first roll minus the value of the second.
+
+To create this pmf we can observe the pattern in the events in the sample space. The value of the random variable when the first die is a 1 ranges from 0 to -5, then when the first die is a 2 it ranges from 1 to -4, and so on. This gives us the following pmf (note that this pmf is similar to the sum RV pmf, with a difference in values):
+
+| i | p(i) |
+|---|------|
+| 5 | $\frac{1}{36}$|
+| 4 | $\frac{2}{36} = \frac{1}{18}$|
+| 3 | $\frac{3}{36} = \frac{1}{12}$|
+| 2 | $\frac{4}{36} = \frac19$|
+| 1 | $\frac{5}{36}$|
+| 0 | $\frac{6}{36} = \frac16$|
+|-1 | $\frac{5}{36}$|
+|-2 | $\frac{4}{36} = \frac19$|
+|-3 | $\frac{3}{36} = \frac{1}{12}$|
+|-4 | $\frac{2}{36} = \frac{1}{18}$|
+|-5 | $\frac{1}{36}$|
+
 # Chapter 2 Problem 9
 
 # Chapter 2 Problem 10
