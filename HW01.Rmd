@@ -169,6 +169,25 @@ If $F \subset E$, then $P(E \cap F) = P(F)$, so we can say that
 
 # Chapter 1 Problem 38
 
+Urn 1 contains two white balls and one black ballm, while urn 2 contains one white ball and five black balls. one ball id drawn at random from urn 1 and placed in urn 2. A ball is then drawn from urn 2. It happens to be white. What is the probability that the transferred ball was white?
+
+Problem Constraints
+
+* $W_1 := \text{White ball transferred}$
+* $W_2 := \text{White ball chosen from urn 2}$
+* $P(W_1) = \frac23$
+
+We want to find $P(W_1 | W_2)$. To find this we can use Bayes theorem:
+
+\[P(W_1 | W_2) = \frac{P(W_2 | W_1)}{P(W_2)}\]
+
+\[P(W_2) = P(W_2 | W_1)P(W_1)+ P(W_2|W_1^c)P(W_1^c) = \frac27\frac23 + \frac17\frac13 = \frac{5}{21}\]
+
+\[P(W_1 | W_2) = \frac{\frac27\frac23}{\frac5{21}} = \frac{\frac4{21}}{\frac5{21}} = \frac45 = 0.8\]
+
+We can say that if the ball pulled from urn 2 is white, then the probability that the transferred ball was white is **80%**.
+
+
 # Chapter 1 Problem 42
 
 # Chapter 1 Problem 46
