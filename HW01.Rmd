@@ -187,8 +187,28 @@ We want to find $P(W_1 | W_2)$. To find this we can use Bayes theorem:
 
 We can say that if the ball pulled from urn 2 is white, then the probability that the transferred ball was white is **80%**.
 
-
 # Chapter 1 Problem 42
+
+There are three coins in a box. One is a two-headed coin ($i = 1$), another is a fair coin ($i = 2$), and the third is a biased coin that comes up heads 75% of the time ($i = 3$). When one of the three coins is selected at random and flipped, it shows heads. What is the probability that it was the two-headed coin?
+
+Problem constraints:
+
+* $C_i := \text{Coin i was flipped}$
+* $P(H | C_1) = 1$
+* $P(H | C_2) = 0.5$
+* $P(H | C_3) = 0.75$
+
+We want to find $P(C_1 | H)$. We can use Bayes theorem:
+
+\[P(C_1 | H) = \frac{P(H|C_1)P(C_1)}{P(H)}\]
+
+\[P(H) = P(H|C_1)P(C_1) + P(H|C_2)P(C_2) + P(H|C_3)P(C_3) = \frac13+\frac12\frac13+\frac34\frac13 = \frac9{12} =\frac34\]
+
+Plugging this value back into the Bayes Theorem formula we get:
+
+\[P(C_1 | H) = \frac{\frac13}{\frac34} = \frac49\]
+
+Given that the random coin chosen resulted in a heads flip, there is a $\frac49 \approx 44.44$% chance that the coin was the two-headed coin.
 
 # Chapter 1 Problem 46
 
