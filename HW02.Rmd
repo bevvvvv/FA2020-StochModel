@@ -1,0 +1,65 @@
+---
+title: "Homework 02 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "09/15/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 2 Problem 33
+
+Let $X$ be a random variable with the following probability density from $-1 < x< 1$:
+
+\[f(x) = c(1 - x^2)\]
+
+## Part a
+
+What is the value of c? The value of c must make the density valid. For this to be true the pdf must be positive and also integrate to 1 over its support, so let's integrate:
+
+\[\int_{-1}^1c(1-x^2)dx = c(x-\frac13x^3)|_{-1}^1=c((1 - \frac13) - (-1 + \frac13)) = c(\frac23 + \frac23) = c\frac43\]
+
+This means that $c = \frac34$ for the density to be valid. This also maintains a positive function, since $1 - x^2$ will be positive between -1 and 1 and c is also a positive number.
+
+## Part b
+
+What is the CDF of X?
+
+To find the CDF of X we merely need to integrate the function over its support. We already did this in the last part, so we will just paste the result here:
+
+\[F_X(a) = c(x-\frac13x^3)|_{-1}^a= \frac34x-\frac14x^3|_{-1}^a= \frac34a-\frac14a^3 - (-\frac34+\frac14) = \frac34a-\frac14a^3 + \frac12\]
+
+This gives us the CDF:
+
+\[F_X(x) = \frac34x-\frac14x^3 + \frac12\]
+
+# Chapter 2 Problem 37
+
+Let $X_1, X_2, ...,X_n$ be independent random variables, each having a uniform distribution over (0,1). Let $M = maximum (X_1, X_2, ...,X_n$). Show that the distribution function of $M$ is $F_M(x) = x^n$.
+
+We want to find $F_M(x) = P(M \leq x) = P(X_1, X_2, ..., X_N \leq x)$. This must hold true, since x in this case represents the max value. Since each random variable is independent we can multiply them to find their intersect:
+
+\[P(X_1, X_2, ..., X_N \leq x) = \Pi_{i=1}^nP(X_i \leq n) = F_X(x)^n\]
+
+Since each random variable has the same distribution we can plug in the normal distribution for parameters 0 and 1: $F_X(x; a=0,b=1) = \frac{x - a}{b - a} = \frac{x-0}{1-0} = x$. Plugging this into result found above we get:
+
+\[F_M(x) = F_X(x)^n  = x^n\]
+
+# Chapter 2 Problem 44
+
+Let $Y$ denote the number of red balls chosen after the first but before the second black ball has been chosen.
+
+## Part a
+
+Express $Y$ as the sum of $n$ random variables, each of which is either 0 or 1.
+
+Let $Y_i$ be a random variable whose value is 1 if red ball $i$ is taken between the first and second black ball and zero otherwise. This makes $Y = \Sigma_{i=1}^nY_i$.
+
+## Part b
+
+\[E[Y] = E[\Sigma_{i=1}^nY_i]= \Sigma_{i=1}^nE[Y_i]\]
+
+Let's define $p(Y_i)$. $Y_i$ means that you are drawing a single red ball out of $m-1$ black balls and 1 red ball. This gives us $p(Y_i) = \frac{1}{m}$. This would make $E[Y_i] = 1 * p(Y_i) + 0 * (1 - p(Y_i)) = p(Y_i)$
+
+\[\Sigma_{i=1}^n \frac{1}{m} =  \frac{n}{m} = E[Y]\]
+
