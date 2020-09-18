@@ -63,3 +63,139 @@ Let's define $p(Y_i)$. $Y_i$ means that you are drawing a single red ball out of
 
 \[\Sigma_{i=1}^n \frac{1}{m} =  \frac{n}{m} = E[Y]\]
 
+# Chapter 2 Problem 53
+
+If X is uniform over (0, 1), calculate $E[X^n]$ and $Var(X^n)$. Recall that a Uniform distribution from 0 to 1, the density is $f(x) = \frac{1}{b-a} = \frac{1}{1-0} = 1$
+
+\[E[X^n] = \int_0^1x^nf(x)dx = \int_0^1x^ndx = \frac1{n+1}x^{n+1}|_0^1 = \frac{1}{n+1}\]
+
+To find the variance of the $n^{th}$ moment recall that we can define:
+
+\[Var(X^n) = E[X^{2n}] - (E[X^n])^2\]
+
+Let's find the two terms; the second we can pull from above.
+
+\[E[X^{2n}] = \int_0^1x^{2n}f(x)dx = \int_0^1x^{2n}dx = \frac1{2n+1}x^{2n+1}|_0^1 = \frac{1}{2n+1}\]
+\[(E[X^n])^2 = (\frac{1}{n+1})^2 = \frac1{n^2+2n+1}\]
+
+Plugging this back in we get:
+
+\[Var(X^n) = E[X^{2n}] - (E[X^n])^2 = \frac{1}{2n+1} - \frac1{n^2+2n+1} = \frac{n^2+2n}{2n+1(n^2+2n+1)}\]
+
+# Chapter 2 Problem 55
+
+The following is a joint pmf for $X$ and $Y$.
+
+\[P(X=i,Y=j) = \binom{j}{i}e^{-2\lambda}\lambda^j/j!; 0\leq i\leq j\]
+
+## Part a
+
+Find the pmf of Y.
+
+\[P(Y=j) = \Sigma_{i=1}^jP(X=i,Y=j) = \Sigma_{i=0}\binom{j}{i}e^{-2\lambda}\lambda^j/j! = e^{-2\lambda}\lambda^j/j!\Sigma_{i=0}^j\binom{j}{i} = 2^je^{-2\lambda}\lambda^j/j!\]
+
+\[P(Y=j) = 2^je^{-2\lambda}\lambda^j/j!\]
+
+## Part b
+
+Find the pmf of X.
+
+\[P(X = i) = \Sigma_{j=i}^{\infty}P(X=i,Y=j) = \Sigma_{j=i}^{\infty}\binom{j}{i}e^{-2\lambda}\lambda^j/j! = e^{-2\lambda}\Sigma_{j=i}^{\infty}\binom{j}{i}\lambda^j/j!\]
+
+\[P(X = i) = e^{-2\lambda}\Sigma_{j=i}^{\infty}\frac{j!}{i!(j-i)!}\lambda^j/j! =\frac{e^{-2\lambda}}{i!}\Sigma_{j=i}^{\infty}\frac{\lambda^j}{(j-i)!}= \frac{e^{-2\lambda}}{i!}e^{\lambda}\]
+
+\[P(X = i) = \frac{e^{-\lambda}}{i!}\]
+
+# Chapter 2 Problem 63
+
+Let $X$ denote the number of white balls selected when $k$ balls are chosen at random from an urn containing $n$ white and $m$ black balls.
+
+## Part a
+
+Compute $P(X=i)$.
+
+The total sample space is $\binom{n+m}{k}$ where we want to consider $\binom{n}{i}$ white balls chosen and $\binom{m}{k -i}$ black balls chosen. Therefore we get:
+
+\[P(X=i) = \frac{\binom{n}{i}\binom{m}{k-i}}{\binom{n+m}{k}}\]
+
+## Part b
+
+Compute $E[X]$.
+
+Using X:
+
+\[E[X] = E[\Sigma_{i=1}^kX_i] = \Sigma_{i=1}^kE[X_i]\]
+
+We know that $E[X_i]$ is just the probability of the bernoulli variable being 1, which is the probaility that the $i^{th}$ ball selected is white. This probability is $p(X_i) = \frac{1}{m+1}$. This gives us:
+
+\[E[X] = \frac{k}{m+1}\]
+
+# Chapter 2 Problem 67
+
+Calculate the moment generating function of the uniform distribution on (0, 1). Obtain the expectation and variance by differentiation.
+
+Recall that $M_x(t) = E[e^{tx}] = \int_0^1e^{tx}dx = \frac{e^{tx}}{t}|_{0}^1 = \frac{e^t-1}{t}$
+
+Using the MGF for (E[X]) we take the first derivative and evaluate for t=0:
+
+\[M_x'(t=0) = \frac{e^t}{t} - \frac{e^t-1}{t^2}\]
+
+# Chapter 2 Problem 68
+
+Let $X$ and $W$ be the working and subsequent repair times of a certain machine. Let $Y = X + W$ and suppose that the joint probability density of X and Y is
+
+\[f_{X,Y}(x,y) = \lambda^2e^{-\lambda y}, 0 < x < y < \infty\]
+
+## Part a
+
+Find the density of $X$:
+
+\[f_X(x)=\int_0^y\lambda^2e^{-\lambda y}dx = \lambda^2e^{-\lambda y}x|_0^y = y\lambda^2e^{-\lambda y}\]
+
+## Part b
+
+Find the density of $Y$:
+
+\[f_Y(y) = \int_x^{\infty}\lambda^2e^{-\lambda y}dy = -\lambda e^{-\lambda y}|_x^{\infty} = \lambda e^{-\lambda x}\]
+
+# Chapter 2 Problem 70
+
+Calculate the moment generating function of a geometric random variable.
+
+Recall the pmf:
+
+\[p(k) = (1-p)^{k-1}p\]
+\[E[e^{tX}] = \Sigma_{i=1}^{\infty}(1-p)^{i-1}pe^{ti} = p\Sigma_{i=0}^{\infty}((1-p)e^{t})^i = \frac{p}{1-(1-p)e^t}\]
+\[M_x(t) = \frac{p}{1-(1-p)e^t}\]
+
+# Problem A
+
+Find $P(\frac{-1}2 < X < 0$ for the R.V. in 2.33. Recall the CDF $F_X(x) = \frac34x-\frac14x^3 + \frac12$.
+
+We can find the desired value via $F(0) - F(-0.5)$.
+
+\[F(0) - F(-\frac12) = \frac12 - (\frac34\frac{-1}2+\frac14\frac18 + \frac12) = \frac{12}{32} - \frac1{32} = \frac{11}{32}\]
+
+The mean is the expected value:
+
+\[\int_{-1}^1\frac{3x}4(1 - x^2)dx = \frac34\int_{-1}^1x-x^3dx = \frac34(\frac{x}2^2-\frac{x^4}{4})|_{-1}^1 = \frac34((\frac12 - \frac14) - (\frac12 - \frac14)) = 0\]
+
+The mean is 0.
+
+The variance is the second moment in this case.
+
+\[\int_{-1}^1\frac{3x^2}4(1 - x^2)dx = \frac34\int_{-1}^1x^2-x^4dx = \frac34(\frac13x^3-\frac15x^5)|_{-1}^1 = \frac34(\frac13 - \frac15 + \frac13 - \frac15) = \frac34(\frac23-\frac25) = \frac34(\frac4{15}) = \frac15\]
+
+# Problem B
+
+Let X be an exponential random variable with parameter $\lambda$. Prove that $P(X > s+ t | X >t) = P(X > s)$. for any positive values of s and t.
+
+\[P(X > s + t | X > t) = \frac{P(X > s+t, X > t)}{P(X>t)}\]
+
+Since t is greater than or equal to zero the intersection of the events of X > t and X > s + t both fall into s + t. This gives us:
+
+\[P(X > s + t | X > t) = \frac{P(X > s+t)}{P(X>t)} = \frac{1-(1-e^{-\lambda s - \lambda t})}{1-(1 - e^{-\lambda t})} = e^{-\lambda s - \lambda t + \lambda t} = e^{-\lambda s}\]
+
+From this we can see that 
+
+\[P(X > s + t | X > t) = e^{-\lambda s} = 1 - (1 - e^{-\lambda s}) = P(X > s)\]
