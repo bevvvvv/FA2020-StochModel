@@ -75,3 +75,7 @@ For i = 3:
 
 # Chapter 3 Problem 7
 
+\[E[X|Y = 2] = 1 P(1|Y = 2) + 2P(2 | Y = 2) = 1(\frac15 + 0) + 2(0 + \frac45) = \frac15 + \frac85 = \frac95\]
+
+\[E[X|Y=2,Z=1] = 1P(1|Y=2,Z=1) + 2P(2|Y=2,Z=1) = 1 + 0 = 1\]
+
