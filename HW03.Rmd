@@ -33,3 +33,45 @@ The probability that total sales exceeds 530, $P(Y > 530)$, is **9.01%**.
 
 # Chapter 2 Problem 78
 
+## Part a
+
+Recall the Markov inequality:
+
+\[P(X \geq a) \leq \frac{E[x]}{a}\]
+
+We also know that the sum of independent Poisson R.V.s is a Poisson R.V. whose mean is the sum of the individual means:
+
+\[Y = \Sigma_{i=1}^{10}X_i = \text{Poisson}(\Sigma_{i=1}^{10}\lambda_i)\]
+
+Here we can conclude the bound is:
+
+\[P(Y \geq 15) \leq \frac{\Sigma_{i=1}^{10}\lambda_i}{15} =\frac{10}{15}\]
+
+## Part b
+
+We can use the central limit theoream to approximate $P(\Sigma_{i=1}^{10} X \geq 15)$. Using the central theorem we will approximate by assuming that the sample mean is normally distributed. We make sure to transform the value to the standard normal and then use the CDF to determine the probability.
+
+\[P(\Sigma_{i=1}^{10} X \geq 15) = 1 - P(\frac{\Sigma_{i=1}^{10} X - 10}{\sqrt{10}} \leq \frac{15 - 10}{\sqrt{10}}) = 1 - \Phi(1.58) = 1- 0.9429 = 0.0571\]
+
+Using CLT to approximate the probability that the sum is greater than 15, we get that the probability is **5.71%**, which is less than our bound of 66.67%.
+
+# Chapter 3 Problem 3
+
+Compute $E[X|Y = i]$ for $i = 1,2,3$. Recall the formula for the conditional expectation:
+
+\[E[X|Y = i] = \Sigma_xxP(X | Y = i)\]
+
+For i = 1:
+
+\[E[X | Y = 1] = 1 P(1 |Y = 1) + 2P(2|Y=1) + 3P(3|Y =1) = \frac15 + \frac65 + \frac35 = 2\]
+
+For i = 2:
+
+\[E[X | Y =2] = 1 P(1 |Y=2)+2P(2|Y=2) + 3P(3|Y =2) = \frac23 + 0 + \frac33 = \frac53\]
+
+For i = 3:
+
+\[E[X | Y=3] = 1 P(1 |Y=3)+2P(2|Y=3) + 3P(3|Y =3) = 0 + \frac65 + \frac65 = \frac{12}5\]
+
+# Chapter 3 Problem 7
+
