@@ -1,0 +1,35 @@
+---
+title: "Homework 03 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "09/22/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 2 Problem 72
+
+## Part a
+
+Here we have 5 independent and identically distributed Normal random variables with a mean of 100 and variance of 100. To find the probability that at least one month of sales exceeds 115 we can find the probability that no months exceed 115 and subtract that value from one. The probability that no months exceed 115 is the value of the CDF at 115 multiplied 5 times:
+
+\[P(X_1, X_2, X_3,X_4,X_5 \leq 115  = \Pi_{i=1}^5P(X_i \leq 115)\]
+
+We can use the standard normal CDF if we transform the distribution.
+
+\[P(X_i \leq 115) = P(\frac{X_i - \mu}{\sigma} \leq \frac{115 - 100}{10}) = P(Z \leq 1.5) = \Phi(1.5) = 0.9332\]
+
+\[\Pi_{i=1}^5P(X_i \leq 115) = (0.9332)^5 = 0.7077\]
+
+This gives us our desired value of $1 - 0.7707 = 0.2923$. The probability that at least one month exceeds 115 in sales is **29.23%**.
+
+## Part b
+
+The probability that the total sales exceeds 530 in the next five months requires us to define a new random variable $Y$. $Y = \Sigma{i=1}^5X_i$, which gives a mean of $\Sigma_{i=1}^5\mu_{X_i} = 500$ and a variance of $\Sigma_{i=1}^5\sigma^2_{X_i} = 500$. We can then search for:
+
+\[1 - P(Y \leq 530) = 1 - P(\frac{Y - 500}{22.36}\leq\frac{530 - 500}{22.36}) = 1 - \Phi(1.34) = 1 - 0.9099 = 0.0901\]
+
+The probability that total sales exceeds 530, $P(Y > 530)$, is **9.01%**.
+
+# Chapter 2 Problem 78
+
