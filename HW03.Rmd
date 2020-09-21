@@ -136,6 +136,65 @@ Next let's look at the two more complicated values. $E[N|H,T]$ and $E[N| T,H]$ s
 
 # Chapter 3 Problem 24
 
+## Part a
+
+We are trying to find $E[N]$ when flipping a coin with probability $p$ of landing on heads. We will flip until at least one head and one tail have been flipped. We start at two flips minimum:
+
+\[E[N] = 1 + E[N | H]P(H) + E[N|T]P(T)\]
+
+So let's look at our next flip for each. If we get heads first:
+
+\[E[N| H] = 1 + E[N|H]P(H) + 0P(T)\]
+\[E[N| H] = 1 + (1 + E[N|H]P(H))P(H)\]
+
+So this expectation becomes an infinite geometric series:
+
+\[E[N| H] = 1 + P(H) + P(H)^2 ... = \frac{1}{1-P(H)}\]
+
+Now let's look at if we get tails first:
+
+\[E[N|T] = 1 + 0P(H) + E[N|T]P(T)\]
+
+This looks exactly like the previous expectation for $E[N|H]$, so mirroring that we get:
+
+\[E[N|T] = \frac{1}{1-P(T)}\]
+
+Now let's plug these back in for $P(H) = p$ and $P(T) = 1-p$:
+
+\[E[N] = 1 + (\frac{1}{1-p})p + \frac{1}{p}(1-p)\]
+\[E[N] = 1 + \frac{p^2}{(1-p)p} + \frac{(1-p)^2}{p(1-p)}\]
+\[E[N] = 1 + \frac{p^2 + (1-p)^2}{p(1-p)}\]
+
+## Part b
+
+To get the expected number of heads we need to consider two cases. The first case is that a tail is flipped first. If this occurs, then we only expect there to be 1 head, since we only need at least one tail and one head to reach our goal; however if a head is flipped first then we will keep flipped until we do not have a head:
+
+\[E[N] = 1P(T) + E[N|H]P(H)\]
+
+We know that $E[N|H] = 1 + 0P(T) + E[N|H]P(H)$. We can see that this also follows the pattern of $E[N|H]$ in part a, so we know it forms a geometric series resulting in $E[N|H] = \frac{1}{1-p}$. Plugging this back in we get:
+
+\[E[N] = 1-p + p(\frac{1}{1-p}) = 1-p + \frac{p}{1-p}\]
+
+## Part c
+
+The expected number of flips that land on tails is the same as heads, but we swap the probabilities.
+
+\[E[N] = p + (1-p)\frac{1}{p} = p + \frac{1-p}{p}\]
+
+## Part d
+
+\[E[N] = 2 + E[N |H,H]P(H,H) + E[N|H,T]P(H,T) + E[N|T,H]P(T,H)+E[N|T,T]P(T,T)\]
+
+$E[N|H,H] = 1 + 0P(T) + E[N|H]P(H)$, since we just need to know how many more heads we expect to get before our single tails. We will be able to replace the value of $E[N|H]$ with that found in part a. Both $E[N|H,T]$ and $E[N|T,H]$ need just one more heads, so we see $1 + 0P(H) + E[N|T]P(T)$. We will be able to replace the value of $E[N|T]$ with the value of that found in part a. If both of the first two flips are heads then we need to find two more heads: 
+
+\[E[N|T,T] = 1 + E[N|H]P(H) + E[N|T,T]P(T)\]
+
+This will become another geometric series where $a = E[N|H]P(H)$ and $r = P(T)$, which we know the value from part a. Putting all this together we get:
+
+\[E[N] = 2 + \frac{p^2}{1-p} + \frac{2p(1-p)}{p} +\frac{p(1-p)^2}{(1-p)p}\]
+
+\[E[N] = 2 + \frac{p^3+3p(1-p)^2}{p(1-p)}\]
+
 # Chapter 3 Problem 26
 
 # Problem A
