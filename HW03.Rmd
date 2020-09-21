@@ -102,6 +102,22 @@ Thus we confirm that the conditional expectation $E[X|Y = y] = 0$.
 
 # Chapter 3 Problem 15
 
+Here we are finding $E[X^2|Y = y]$. We can use the equation for the second moment of a continuous random variable:
+
+\[E[X|Y = y] = \int x^2 f_{X|Y}(X|Y=y)dx\]
+
+First we need to find the conditional pdf $f_{X|Y}(X|Y=y)$. $f_{X|Y}(X|Y=y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}$.
+
+\[f_Y(y) = \int_{0}^y\frac{e^{-y}}{y}dx = \frac{e^{-y}}{y}x|_0^y = e^{-y}\]
+
+Plug this back in to get the conditional pdf:
+
+\[f_{X|Y}(X|Y=y) = = \frac{\frac{e^{-y}}{y}}{e^{-y}} = \frac1y\]
+
+Now we can find the conditional second moment:
+
+\[\int_{0}^y x^2 f_{X|Y}(X|Y=y)dx = \int_{0}^y \frac{x^2}ydx = \frac{x^3}{3y}|_0^y = \frac{y^2}3\]
+
 # Chapter 3 Problem 23
 
 # Chapter 3 Problem 24
