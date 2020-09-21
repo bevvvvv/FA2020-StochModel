@@ -197,9 +197,43 @@ This will become another geometric series where $a = E[N|H]P(H)$ and $r = P(T)$,
 
 # Chapter 3 Problem 26
 
+\[E[N_A] = E[N_A|\text{win}]p_A + E[N_A|\text{lose}](1-p_A)\]
+
+We know that if you lose with A, then you essentially star anew with B $E[N_A|\text{lose}] = 1 + E[N_B]$. On the other hand if you win you could either win again or lose. If you win again, then you are done, but otherwise you start over:
+
+\[E[N_A|\text{win}] = E[N_A|\text{win},\text{lose}](1-p_B) + 2p_B\]
+\[E[N_A|\text{win}] = (2 + E[N_A])(1-p_B) + 2p_B\]
+
+\[E[N_A] = 1 + p_A + (p_A - p_Ap_B)E[N_A] + (1-p_A)E[N_B]\]
+\[E[N_B] = 1 + p_B + (p_B - p_Ap_B)E[N_B] + (1-p_B)E[N_A]\]
+
+\[E[N_A] - E[N_B] = p_A - p_B + (1 - p_A - p_B + p_Ap_B)E[N_B] + (p_B - 1 + p_A - p_Ap_B)E[N_A]\]
+\[E[N_A] - E[N_B] = p_A - p_B + (p_A - p_Ap_B - 1 + p_B)(E[N_A] - E[N_B])\]
+\[(-p_A + p_Ap_B + 2 - p_B)(E[N_A] - E[N_B]) = p_A - p_B\]
+
+Here we know that the term on the left must be positive, since the probabilities are each less than 1. Since the probability of B is greater than A we know this difference $E[N_A] - E[N_B]$ will end up being negative, since the term on the right is $p_A - p_B$. A negative difference implies that the expected number of games played starting with B will be higher than the expected number of games starting with A, therefore we should start by playing player A first.
+
 # Problem A
+
+Problem Constraints:
+
+* $\mu = 5$
+* $\sigma = 2$
+* $n = 50$
 
 ## Part a
 
+Here we are approximating the probability that it will take more than 260 minutes to process all 50 items. The sample mean $\Sigma X_i$ is a random variable that can be approximated via the Normal distribution given the Central Limit theorem.
+
+\[P(\Sigma_{i=1}^{50} X_i > 260) = 1 - P(\frac{\Sigma_{i=1}^{50} X_i - 250}{\sqrt{100}} \leq \frac{260 - 250}{\sqrt{100}}) = 1- \Phi(1)=1-0.8413 = 0.1587\]
+
+There is a **15.87%** probability that it will take more than 260 minutes to process all 50 items.
+
 ## Part b
+
+The probability that at least 30 items will be processed in the first 140 minutes is the same as saying the probability it will take us less or equal to 140 minutes to process 30.
+
+\[P(\Sigma_{i=1}^{30} X_i \leq 140) = P(\frac{\Sigma_{i=1}^{30} X_i - 150}{\sqrt{60}} \leq \frac{140 - 150}{\sqrt{60}}) = \Phi(-1.29) = 0.0985\]
+
+There is a **9.85%** probability that 30 or more items will be process in the first 140 minutes.
 
