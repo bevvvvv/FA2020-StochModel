@@ -79,3 +79,38 @@ For i = 3:
 
 \[E[X|Y=2,Z=1] = 1P(1|Y=2,Z=1) + 2P(2|Y=2,Z=1) = 1 + 0 = 1\]
 
+# Chapter 3 Problem 11
+
+Here we are finding $E[X|Y = y]$. We can use the equation for expectation of a continuous random variable:
+
+\[E[X|Y = y] = \int x f_{X|Y}(X|Y=y)dx\]
+
+First we need to find the conditional pdf $f_{X|Y}(X|Y=y)$. $f_{X|Y}(X|Y=y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}$.
+
+\[f_Y(y) = \int_{-y}^y\frac{e^{-y}(y^2-x^2)}{8}dx = \frac{e^{-y}}{8}(xy^2 - \frac13x^3)|_{-y}^y\]
+\[f_Y(y) = \frac{e^{-y}}{8}((y^3 - \frac13y^3) - (-y^3 + \frac13y^3)) = \frac{e^{-y}}{6}y^3\]
+
+Plug this back in to get the conditional pdf:
+
+\[f_{X|Y}(X|Y=y) = \frac{\frac{e^{-y}(y^2-x^2)}{8}}{\frac{e^{-y}}{6}y^3} = \frac{3(y^2-x^2)}{4y^3} = \frac34y^{-1} - \frac34x^2y^{-3}\]
+
+Now we can find the conditional expectation:
+
+\[\int_{-y}^y x f_{X|Y}(X|Y=y)dx = \int_{-y}^y(\frac34xy^{-1} - \frac34x^3y^{-3})dx = \frac34(\frac{x^2}{2y} - \frac{x^4}{4y^3})|_{-y}^y = \frac34((\frac{y}{2} - \frac{y}4) - (\frac{y}2 - \frac{y}4)) = 0\]
+
+Thus we confirm that the conditional expectation $E[X|Y = y] = 0$.
+
+# Chapter 3 Problem 15
+
+# Chapter 3 Problem 23
+
+# Chapter 3 Problem 24
+
+# Chapter 3 Problem 26
+
+# Problem A
+
+## Part a
+
+## Part b
+
