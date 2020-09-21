@@ -120,6 +120,20 @@ Now we can find the conditional second moment:
 
 # Chapter 3 Problem 23
 
+We are trying to find $E[N]$ where $N$ is the number of flips until 2 out of three most recent coin flips are heads. We know that we start with 2 flips, then we can condition on the result of these two flips:
+
+\[E[N] = 2 + E[N| H, H]P(H, H) + E[N | H, T] P(H, T) + E[N | T,H]P(T,H) + E[N|T,T]P(T,T)\]
+
+We must define what the expectations are. First we have $E[N|H,H]$. The expected number of further flips then would be 0, because two heads have already been flipped. Next we have $E[N |T,T]$, which is $E[N]$, since it would essentially be like starting the coin flips over, since no progress towards flipping heads has been made.
+
+Next let's look at the two more complicated values. $E[N|H,T]$ and $E[N| T,H]$ show progress toward our goal of two heads in the last three flips. For $E[N|H,T]$ we add 1 flip more. If that next flip is heads, then we met our goal, otherwise we reset. This gives us $E[N|H,T] = 1 + 0P(H) + E[N]P(T)$. For $E[N|T,H]$ we have the same 1 flip more, that either results in meeting the goal of 2 heads, or results in the previous expectation of a $H,T$. $E[N|T,H] = 1 + 0P(H) + E[N|H,T]P(T)$. Let's plug these values back into the main equation:
+
+\[E[N] = 2 + 0p^2 + (1 + 0P(H) + E[N]P(T))p(1-p) + (1 + 0P(H) + (1 + 0P(H) + E[N]P(T))P(T))p(1-p) + E[N]p(1-p)\]
+\[E[N] = 2 + (1 + E[N](1-p))p(1-p) + (1 + (1 + E[N](1-p))(1-p))p(1-p) + E[N](1-p)\]
+\[E[N] = 2 + p(1-p) + E[N]p(1-p)^2 + p(1-p) + p(1-p)^2 + E[N]p(1-p)^3+ E[N](1-p)^2\]
+\[E[N](1 - p(1-p)^2 - (1-p)^2 - p(1-p)^3) = 2 + 2p(1-p) + p(1-p)^2\]
+\[E[N] = \frac{2 + 2p(1-p) + p(1-p)^2}{1 - p(1-p)^2 - (1-p)^2 - p(1-p)^3}]\]
+
 # Chapter 3 Problem 24
 
 # Chapter 3 Problem 26
