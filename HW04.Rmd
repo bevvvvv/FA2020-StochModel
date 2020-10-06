@@ -9,25 +9,202 @@ output:
 
 # Chapter 3 Problem 36
 
+## Find $E[X|X\neq 0]$
+
+We know that if X is not ever equal to zero, then the mass given to zero would be redistributed over the rest of the support of X. This mass as defined in the problem is $p_0$. Therefore we can divide the rescale the remaining probability values to correspond with the samples space of $1 - p_0$. This gives us:
+
+\[E[X|X\neq 0] = \Sigma_{x \neq 0}\frac{x_ip(x_i)}{1-p_0} = \frac{1}{1-p_0}\Sigma x_ip(x_i) = \frac{\mu}{1 - p_0}\]
+
+## Find $Var(X | X \neq 0)$
+
+\[Var(X | X \neq 0) = \frac{E(X^2)}{1-p_0} - \frac{\mu^2}{(1-p_0)^2} = \frac{(1-p_0)E(X^2) - \mu^2}{(1-p_0)^2}\]
+\[Var(X | X \neq 0) = \frac{\sigma^2 - p_0E(X^2)}{(1-p_0)^2}\]
+
 # Chapter 3 Problem 38
+
+In this problem X is distributed uniformly along (0, y) with y being selected from Y with a uniform distribution (0, 1). This makes the uniform distribution of X to be $f(x | Y=y) = \frac{1}{y}$
+
+## $E[X]$
+
+We can calculate this with the law of iterated expecation
+\[E[X] = E[E[X|Y = y]]\]
+\[E[X|Y = y] = \int_0^yxf(x|Y=y)dx = \int_0^y\frac{x}{y}dx = \frac{x^2}{2y}|_0^y = \frac{y}{2}\]
+\[E[X] = E[\frac{y}{2}] = \int_0^1\frac{y}{2}dy = \frac{y^2}{4}|_0^1 = \frac14\]
+
+The expected value of X is $\frac14$.
+
+## $Var(X)$
+
+\[Var(X) = E(X^2) - E(X) = E(E(X^2|Y=y)) - \frac1{16}\]
+\[E(X^2|Y=y) = \int_0^yx^2f(x|Y=y)dx = \int_0^y\frac{x^2}{y}dx = \frac{x^3}{3y}|_0^y = \frac{y^2}{3}\]
+\[E(E(X^2|Y=y)) = \int_0^1\frac{y^2}{3}dy = \frac{y^3}{9}|_0^1 = \frac19\]
+\[Var(X) = \frac19 - \frac1{16} \approx 0.04861\]
 
 # Chapter 3 Problem 44
 
+In this problem we are looking at a compound random variables $Y = \Sigma_{i=1}^NX_i$.
+
+\[E[Y] = E[N]E[X]\]
+
+We know the mean of $N$ is $\lambda = 10$ and the mean of X is $\frac{100 + 0}2 = 50$.
+
+\[E[Y] = 10 * 50 = 500\]
+
+\[Var(Y) = Var(X)E[N] + (E[X])^2Var(N)\]
+
+Again we know $Var(X) = \frac{100^2}{12} = 833.33$ from its distribution and $Var(N) = \lambda = 10$.
+
+\[Var(Y) = 833.33*10 + 50^2*10 = 33,333.33\]
+
 # Chapter 3 Problem 49
+
+## Part a
+
+To find the probability that A is the overall winner, let us first consider the winning condition. The overall winner must have won net 2 games over the other player. There are three options for what could happen after the first game: A wins two, B wins two, or they split. The probability of A winning two is $p^2$, the probability of B winning two is $(1-p)^2$ and there are two ways they can split, so the probability of them splitting is $2p(1-p)$. The games will keep going until one of them attains net 2 games, so this implies an infinite series where they keep splitting until A or B wins. This gives us the probability of A winning to be:
+
+\[P(W = A) = \Sigma_{k=0}^{\infty}(2p(1-p))^kp^2\]
+
+This summation is a geometric series, so we get:
+
+\[P(W = A) = p^2\frac{1}{1-(2p-2p^2)} = \frac{p^2}{2p^2-2p+1}\]
+
+## Part b
+
+Expected number of games played follows a similar logic to the first part:
+
+\[E[N] = 2 + 0p + 0(1-p) + E[N|split](2p(1-p))\]
+\[E[N|split] = 2 + 0p + 0(1-p) + E[N|split](2p(1-p))\]
+
+This makes $E[N]$ a geometric series with $a=2$ and $r=p(1-p)$:
+
+\[E[N] = \frac{2}{1-p(1-p)} = \frac{2}{p^2+(1-p)}\]
 
 # Chapter 3 Problem 62
 
+A, B, and C are all evenly matched tennis players and play until someone wins twice in a row. We want to find $P(W=A)$. We must consider the result after the first two games: A wins twice, B wins twice, A wins once, or B wins once. Each of these events occur with probability of $\frac14$. Since we are looking for when A wins, we are looking for a pattern where A loses and then another game is played until A wins twice in a row. We already stated that the pattern where A loses, then another game is played occurs 1 in four times. This gives us:
+
+\[P(W = A) = \Sigma_{k=0}^\infty(\frac14)^k(\frac14)\]
+
+This is a geometric series that yields:
+
+\[P(W=A)=\frac{\frac14}{\frac34} = \frac13\]
+
+This makes sense, since each of them are evenly matched.
+
 # Chapter 4 Problem 2
+
+The proposed Markov Chain is a Markov Chain, since the state (population of gen n) is only dependent on the size of the previous population (gen n-1). We determined that the number of offspring of an individual follows Poisson distribution with mean of $\lambda$. The total offspring of a generation would be the sum of all the individuals. We know that the sum of i.i.d. Poisson random variables is a Poission distribution whose mean is the sum of means. This gives us the transition probability:
+
+\[P_{i,j} = \frac{\lambda_i^je^{-i\lambda}}{j!}\]
 
 # Chapter 4 Problem 3
 
+## Part a
+
+The Markov chain we can use to analyze this model follows states that are a list of players 1 through k order the following way: (prev_winner, next_up, next_next_up, ..., prev_loser). Basically the state tells us the ordered line and the two who are playing a game in the given period.
+
+## Part b
+
+This Markov chain has k! states, since it includes all possible permutations of the orderings of players 1 through k.
+
+## Part c
+
+For the transition probability $P_{i,j}$ there are only two cases with a probability greater than zero. The first two players in line player each other and one of them wins. This gives us the two probabilities. Considering the transition from state (i,j,..,k) to (i,...,k,j) the probability is $\frac{v_i}{v_i+v_j}$. The transition from state (i,j,...,k) to (j,...,k,i) the probability is $\frac{v_j}{v_i+v_j}$. Note that flipping i and j in the initial state in the transition is merely changing the notation for the same state representation of any two given players playing a game.
+
 # Chapter 4 Problem 6
+
+Base Case:
+
+$$
+P^1=\begin{bmatrix}
+\frac12 + \frac12(2p-1)^1 & \frac12 - \frac12(2p-1)^1\\
+\frac12 - \frac12(2p-1)^1 & \frac12 + \frac12(2p-1)^1
+\end{bmatrix} = \begin{bmatrix}
+\frac12 + p-\frac12 & \frac12 - p + \frac12\\
+\frac12 - p + \frac12 & \frac12 + p-\frac12
+\end{bmatrix} = \begin{bmatrix}
+p & 1 - p\\
+1- p & p
+\end{bmatrix}
+$$
+
+Hypothesis:
+
+$$
+P^k=\begin{bmatrix}
+\frac12 + \frac12(2p-1)^k & \frac12 - \frac12(2p-1)^k\\
+\frac12 - \frac12(2p-1)^k & \frac12 + \frac12(2p-1)^k
+\end{bmatrix}
+$$
+
+Inductive Step:
+
+$$
+P^{k+1}=P^kP^1=\begin{bmatrix}
+\frac12 + \frac12(2p-1)^k & \frac12 - \frac12(2p-1)^k\\
+\frac12 - \frac12(2p-1)^k & \frac12 + \frac12(2p-1)^k
+\end{bmatrix}*\begin{bmatrix}
+p & 1 - p\\
+1- p & p
+\end{bmatrix}
+$$
+
+Let's just take $P^{k+1}_{0,0}$
+
+\[P^{k+1}_{0,0} = \frac p2 + \frac p2(2p-1)^k + \frac12 - \frac12(2p-1)^k - \frac p2 + \frac p2(2p-1)^k\]
+\[P^{k+1}_{0,0} = \frac12 - \frac12(2p-1)^k + p(2p-1)^k\]
+\[P^{k+1}_{0,0} = \frac12 +(p-\frac12)(2p-1)^k\]
+\[P^{k+1}_{0,0} = \frac12 +\frac12(2p-1)(2p-1)^k\]
+\[P^{k+1}_{0,0} = \frac12 +\frac12(2p-1)^{k+1}\]
+
+Note that the value at $P^{k+1}_{1,1}$ is the same due to the symmetric square matrix.
+
+\[P^{k+1}_{1,0} = \frac p2 - \frac p2(2p-1)^k + \frac12 + \frac12(2p-1)^k - \frac p2 - \frac p2(2p-1)^k\]
+\[P^{k+1}_{1,0} = \frac12 + \frac12(2p-1)^k - p(2p-1)^k\]
+\[P^{k+1}_{1,0} = \frac12 +(\frac12-p)(2p-1)^k\]
+\[P^{k+1}_{1,0} = \frac12 +\frac{-1}2(2p-1)(2p-1)^k\]
+\[P^{k+1}_{1,0} = \frac12 -\frac12(2p-1)^{k+1}\]
+
+Note that the value at $P^{k+1}_{0,1}$ is the same due to the symmetric square matrix.
+
+This gives us that 
+
+$$
+P^{k+1}=P^kP^1 = \begin{bmatrix}
+\frac12 + \frac12(2p-1)^{k+1} & \frac12 - \frac12(2p-1)^{k+1}\\
+\frac12 - \frac12(2p-1)^{k+1} & \frac12 + \frac12(2p-1)^{k+1}
+\end{bmatrix}
+$$
+
+which satisfies our inductive hypothesis.
 
 # Chapter 4 Problem 8
 
+## Part a
 
+The proposed Markov chain is in fact not a Markov chain. The $n^{th}$ ball selected depends on more than just the $(n-1)^{th}$ ball selected. For example say the urn contained two red balls at time n. We get the probability that a red ball is selected at $n+1$ is the probability that the red ball that was selected (since two red balls would guarantee a red) plus the random choice between red and blue times the probability of the ball being replaced with the blue. The same logic follows for drawing a blue ball at time $n+1$.
 
+\[P^n_{1,1} = 0.5*0.3 + 0.7\]
+\[P^n_{1,0} = 0.5*0.3\]
 
+However if the urn contains one red balls at time $n$ we could still have drawn a red ball, but our transition probabilities would change:
+
+\[P^n_{1,1} = 0.5*0.7\]
+\[P^n{1,0} = 0.5*0.7 + 0.3\]
+
+## Part b
+
+The proposed Markov chain is in fact a Markov chain with three states: zero red balls, one red ball, or two red balls. This gives us the probability matrix:
+
+$$
+P = \begin{bmatrix}
+0.5 & 0.5 & 0 \\
+0.15 & 0.6 & 0.25\\
+0 & 0.3 & 0.7
+\end{bmatrix}
+$$
+
+The first and third rows are trivial. The urn either has 2 red or 2 blues, so the new states depend on the replacement balls. The middle row is a different case. Transition from 1 to no red balls requires that red is selected and replaced by blue $0.5*0.3 = 0.15$. Transition from 1 to 2 red balls requires the blue selected and replaced by red $0.5*0.5 = 0.25$. Transition from 1 to 1 could have either red or blue selected, but then replaced with their same color $0.5*0.7 + 0.5*0.5 = 0.6$
 
 
 
