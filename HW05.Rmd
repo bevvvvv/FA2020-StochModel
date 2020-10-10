@@ -1,0 +1,72 @@
+---
+title: "Homework 05 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "10/06/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 4 Problem 5
+
+We are given both the initial probability of starting at state $i$ along with the 1 step transition probability matrix. We can use both of these to determine $P(X_3) = \alpha P^3$.
+
+$$
+\alpha_1 = \alpha_0 P=\begin{bmatrix}\frac14 & \frac14 & \frac12\end{bmatrix}\begin{bmatrix}
+\frac12 & \frac 13 & \frac16 \\
+0 & \frac13 & \frac23 \\
+\frac12 & 0 & \frac12
+\end{bmatrix} = \begin{bmatrix}
+\frac38 & \frac16 & \frac{11}{24}
+\end{bmatrix}
+$$
+
+$$
+\alpha_2 = \alpha_1 P=\begin{bmatrix}\frac38 & \frac16 & \frac{11}{24}\end{bmatrix}\begin{bmatrix}
+\frac12 & \frac 13 & \frac16 \\
+0 & \frac13 & \frac23 \\
+\frac12 & 0 & \frac12
+\end{bmatrix} = \begin{bmatrix}
+\frac5{12} & \frac{13}{72} & \frac{29}{72}
+\end{bmatrix}
+$$
+
+$$
+\alpha_3 = \alpha_2 P=\begin{bmatrix}\frac5{12} & \frac{13}{72} & \frac{29}{72}\end{bmatrix}\begin{bmatrix}
+\frac12 & \frac 13 & \frac16 \\
+0 & \frac13 & \frac23 \\
+\frac12 & 0 & \frac12
+\end{bmatrix} = \begin{bmatrix}
+\frac{59}{144} & \frac{43}{216} & \frac{169}{432}
+\end{bmatrix}
+$$
+
+\[E[X_3] = 0 + \frac{43}{216} + \frac{169}{216} = \frac{212}{216} \approx 0.9815\]
+
+# Chapter 4 Problem 8
+
+# Chapter 4 Problem 10
+
+# Chapter 4 Problem 15
+
+# Chapter 4 Problem 16
+
+# Problem A
+
+# Problem B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
