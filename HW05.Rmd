@@ -45,6 +45,47 @@ $$
 
 # Chapter 4 Problem 8
 
+## Part c
+
+To find the probability that the second ball selected is red we need to know the probability of the state at time 2 (from which the ball will be selected). We use our initial probabilities combined with our transition probability matrix:
+
+$$
+\alpha_2 = \alpha_1 P=\begin{bmatrix}0 & 1 & 0\end{bmatrix}\begin{bmatrix}
+0.5 & 0.5 & 0 \\
+0.15 & 0.6 & 0.25 \\
+0 & 0.3 & 0.7
+\end{bmatrix} = \begin{bmatrix}
+0.15 & 0.6 & 0.25
+\end{bmatrix}
+$$
+
+So the probability of drawing a red ball second when there is 0 red balls is 0, 0.5 when there is 1 red ball, and 1 when there is 2 red balls. This gives us the probability $0 * 0.15 + 0.5 * 0.6 + 1 * 0.25 = 0.25 + 0.3 = 0.55$. The probability of selecting a red ball second is **55%**.
+
+## Part d
+
+Calculating the probability of selecting a red ball fourth follows the same logic as the previous part. We can pickup with $\alpha_2$.
+
+$$
+\alpha_3 = \alpha_2 P=\begin{bmatrix}0.15 & 0.6 & 0.25\end{bmatrix}\begin{bmatrix}
+0.5 & 0.5 & 0 \\
+0.15 & 0.6 & 0.25 \\
+0 & 0.3 & 0.7
+\end{bmatrix} = \begin{bmatrix}
+0.165 & 0.51 & 0.325
+\end{bmatrix}
+$$
+$$
+\alpha_4 = \alpha_3 P=\begin{bmatrix}0.165 & 0.51 & 0.325\end{bmatrix}\begin{bmatrix}
+0.5 & 0.5 & 0 \\
+0.15 & 0.6 & 0.25 \\
+0 & 0.3 & 0.7
+\end{bmatrix} = \begin{bmatrix}
+0.159 & 0.486 & 0.355
+\end{bmatrix}
+$$
+
+This gives us the probability $0 * 0.159 + 0.5 * 0.486 + 1 * 0.355 = 0.243 + 0.355 = 0.598$. The probability of selecting a red ball fourth is **59.8%**. It makes sense that the likelihood of selecting red goes up with time as you are more likely to replace a red ball with a red ball while replace blue ball has equal probability for each.
+
 # Chapter 4 Problem 10
 
 # Chapter 4 Problem 15
