@@ -132,7 +132,36 @@ First let use recall what it means to be recurrent. If state $i$ is recurrent, t
 
 # Problem A
 
+The transition probability matrix below denotes row 0 as the processing facility A, row 1 as supermarket B, and row 3 as supermarket C. The same mapping to the columns.
 
+$$
+P =\begin{bmatrix}
+0 & \frac12 & \frac12 \\
+\frac23 & 0 & \frac13 \\
+\frac23 & \frac13 & 0
+\end{bmatrix}
+$$
+
+We want to know $P^2_{Cj}$. To find this we simply need to compute the matrix $P^2$ via matrix multiplication:
+
+$$
+P^2 =\begin{bmatrix}
+0 & \frac12 & \frac12 \\
+\frac23 & 0 & \frac13 \\
+\frac23 & \frac13 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & \frac12 & \frac12 \\
+\frac23 & 0 & \frac13 \\
+\frac23 & \frac13 & 0
+\end{bmatrix} = 
+\begin{bmatrix}
+\frac23 & \frac16 & \frac16 \\
+\frac29 & \frac49 & \frac13 \\
+\frac29 & \frac13 & \frac49
+\end{bmatrix}
+$$
+
+For the desired probabilities we look at the third row. If the truck starts at the supermarket C at time 0, then at time 2 we expect the truck to be back at the supermarket C with probability $\frac49$, at supermarket B with probability $\frac13$ and at the processing facility A with probability $\frac29$.
 
 # Problem B
 
