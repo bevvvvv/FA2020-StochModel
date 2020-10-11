@@ -1,7 +1,7 @@
 ---
 title: "Homework 05 - STAT416"
 author: "Joseph Sepich (jps6444)"
-date: "10/06/2020"
+date: "10/13/2020"
 output:
   pdf_document:
     number_sections: false
@@ -12,7 +12,7 @@ output:
 We are given both the initial probability of starting at state $i$ along with the 1 step transition probability matrix. We can use both of these to determine $P(X_3) = \alpha P^3$.
 
 $$
-\alpha_1 = \alpha_0 P=\begin{bmatrix}\frac14 & \frac14 & \frac12\end{bmatrix}\begin{bmatrix}
+\alpha^1 = \alpha^0 P=\begin{bmatrix}\frac14 & \frac14 & \frac12\end{bmatrix}\begin{bmatrix}
 \frac12 & \frac 13 & \frac16 \\
 0 & \frac13 & \frac23 \\
 \frac12 & 0 & \frac12
@@ -22,7 +22,7 @@ $$
 $$
 
 $$
-\alpha_2 = \alpha_1 P=\begin{bmatrix}\frac38 & \frac16 & \frac{11}{24}\end{bmatrix}\begin{bmatrix}
+\alpha^2 = \alpha^1 P=\begin{bmatrix}\frac38 & \frac16 & \frac{11}{24}\end{bmatrix}\begin{bmatrix}
 \frac12 & \frac 13 & \frac16 \\
 0 & \frac13 & \frac23 \\
 \frac12 & 0 & \frac12
@@ -32,7 +32,7 @@ $$
 $$
 
 $$
-\alpha_3 = \alpha_2 P=\begin{bmatrix}\frac5{12} & \frac{13}{72} & \frac{29}{72}\end{bmatrix}\begin{bmatrix}
+\alpha^3 = \alpha^2 P=\begin{bmatrix}\frac5{12} & \frac{13}{72} & \frac{29}{72}\end{bmatrix}\begin{bmatrix}
 \frac12 & \frac 13 & \frac16 \\
 0 & \frac13 & \frac23 \\
 \frac12 & 0 & \frac12
@@ -50,7 +50,7 @@ $$
 To find the probability that the second ball selected is red we need to know the probability of the state at time 2 (from which the ball will be selected). We use our initial probabilities combined with our transition probability matrix:
 
 $$
-\alpha_2 = \alpha_1 P=\begin{bmatrix}0 & 1 & 0\end{bmatrix}\begin{bmatrix}
+\alpha^2 = \alpha^1 P=\begin{bmatrix}0 & 1 & 0\end{bmatrix}\begin{bmatrix}
 0.5 & 0.5 & 0 \\
 0.15 & 0.6 & 0.25 \\
 0 & 0.3 & 0.7
@@ -66,7 +66,7 @@ So the probability of drawing a red ball second when there is 0 red balls is 0, 
 Calculating the probability of selecting a red ball fourth follows the same logic as the previous part. We can pickup with $\alpha_2$.
 
 $$
-\alpha_3 = \alpha_2 P=\begin{bmatrix}0.15 & 0.6 & 0.25\end{bmatrix}\begin{bmatrix}
+\alpha^3 = \alpha^2 P=\begin{bmatrix}0.15 & 0.6 & 0.25\end{bmatrix}\begin{bmatrix}
 0.5 & 0.5 & 0 \\
 0.15 & 0.6 & 0.25 \\
 0 & 0.3 & 0.7
@@ -75,7 +75,7 @@ $$
 \end{bmatrix}
 $$
 $$
-\alpha_4 = \alpha_3 P=\begin{bmatrix}0.165 & 0.51 & 0.325\end{bmatrix}\begin{bmatrix}
+\alpha^4 = \alpha^3 P=\begin{bmatrix}0.165 & 0.51 & 0.325\end{bmatrix}\begin{bmatrix}
 0.5 & 0.5 & 0 \\
 0.15 & 0.6 & 0.25 \\
 0 & 0.3 & 0.7
@@ -112,9 +112,27 @@ The probability of Gary never being in a glum mood the following three days, giv
 
 # Chapter 4 Problem 15
 
+The conditional gives us two things to consider. The first is that state $j$ can be reached from state $i$. This gives us $P^m_{i,j} > 0$ and we know that state j can be reached in m steps. Our starting state is i and our ending states is j. As we know $P^m_{i,j}$ can be found via our forward probaility equation $P^m_{i,j} = \alpha_j^m = (\alpha_{m-1}P)_j > 0$. We know that this value must give us:
+
+\[P_{ij}^m = \Sigma_{n<m}P_{n_0n_1}P_{n_1n_2}...P_{n_{m-2}n_{m-1}}P_{n_{m-1}n_m} > 0\]
+
+We can follow one path (instead of all) from i to j then:
+
+\[P_{n_0n_1}P_{n_1n_2}...P_{n_{m-2}n_{m-1}}P_{n_{m-1}n_m} > 0\]
+
+Now we know that this path could get shorter if the state was the same for two of these timestamps (like if Gary in the previous problem stayed Cheerful for two days in a row). Let us denote this states $n_x = n_y$:
+
+\[P_{n_0n_1}P_{n_1n_2}...P_{n_{x-1}n_{x}}P_{n_{x}n_{y+1}}...P_{n_{m-2}n_{m-1}}P_{n_{m-1}n_m} > 0\]
+
+Since our shortest possible path would only stop at these states once (no duplicates) the number of transitions could then also be less than m.
+
 # Chapter 4 Problem 16
 
+First let use recall what it means to be recurrent. If state $i$ is recurrent, then with probability equal to 1 we know that the process will reenter state $i$. This means that eventually the process will reutrn to state $i$, but does not necessarily need to stay in state $i$. We also know that state $i$ and state $j$ do not communicate with each other, meaning that state $j$ is not accessible from state $i$. By definition of communicates and accessible we actually already know that $P_{ij}^n = 0$, since if state $j$ was accessible, then $P_{ij}^n > 0$, but it is not.
+
 # Problem A
+
+
 
 # Problem B
 
