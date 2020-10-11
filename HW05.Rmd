@@ -88,6 +88,28 @@ This gives us the probability $0 * 0.159 + 0.5 * 0.486 + 1 * 0.355 = 0.243 + 0.3
 
 # Chapter 4 Problem 10
 
+The probability that we desire from Gary given our Markov chain $\{X_n,n \geq 0\}$ is $P(X_{i+k} \notin  \{G\} \text{for k} = 1,2,3|X_i = C)$. This is also the complement that is every in a glum mood: $1 - P(X_{i+k} \in  \{G\} \text{for k} = 1,2,3|X_i = C)$.  Here we will define our Markov chain $\{W_n, n\geq 0\}$. Its states are the states the same as $X_n$, but as soon as it enters the state Glum it stays there. For this chain we get the transition probability matrix:
+
+$$
+Q =\begin{bmatrix}
+0.5 & 0.4 & 0.1 \\
+0.3 & 0.4 & 0.3 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+All we need to do now is calculate $Q^3_{CG}$:
+
+```{r}
+Q <- matrix(c(0.5, 0.3, 0, 0.4, 0.4, 0, 0.1, 0.3, 1), nrow=3, ncol=3)
+Q
+```
+```{r}
+Q %*% Q %*% Q
+```
+
+The probability of Gary never being in a glum mood the following three days, given that he starts cheerful is 1 - 0.415 = **58.5%**.
+
 # Chapter 4 Problem 15
 
 # Chapter 4 Problem 16
