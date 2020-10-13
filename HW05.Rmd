@@ -112,13 +112,13 @@ The probability of Gary never being in a glum mood the following three days, giv
 
 # Chapter 4 Problem 14
 
-For the first transition probability matrix $P_1$ the matrix is irreducible so it only has one class $\{0,1,2\}$, where the states are transient (the class as a whole is recurrent since it will always be in the class).
+For the first transition probability matrix $P_1$ the matrix is irreducible so it only has one class $\{0,1,2\}$, the class is recurrent.
 
-For the second transition probability matrix $P_2$ the matrix has a single class $\{0,1,2,3\}$ where states 2 and 3 are recurrent and states 0 and 1 are transient (class as a whole is recurrent).
+For the second transition probability matrix $P_2$ the matrix has a single class $\{0,1,2,3\}$ where the class is recurrent.
 
-For the third transition probability matrix $P_3$ the matrix has the states $\{0, 2\}$, $\{1\}$, $\{3,4\}$. The only transient class is $\{1\}$ (so the other classes are recurrent) and there are no recurrent states.
+For the third transition probability matrix $P_3$ the matrix has the states $\{0, 2\}$, $\{1\}$, $\{3,4\}$. The only transient class is $\{1\}$, so the other classes are recurrent.
 
-For the fourth transition probability matrix $P_4$ the matrix has the states $\{0, 1\}$, $\{2\}$, $\{3\}$ and $\{4\}$. Classes $\{3\}$ and $\{4\}$ are transient, while classes $\{0, 1\}$ and $\{2\}$ are recurrent. Note that the state 2 is also recurrent.
+For the fourth transition probability matrix $P_4$ the matrix has the states $\{0, 1\}$, $\{2\}$, $\{3\}$ and $\{4\}$. Classes $\{3\}$ and $\{4\}$ are transient, while classes $\{0, 1\}$ and $\{2\}$ are recurrent.
 
 # Chapter 4 Problem 15
 
