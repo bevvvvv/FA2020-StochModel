@@ -97,9 +97,70 @@ Since all the non-diagonal entries are the same and the matrix is symmetric the 
 
 ## Part a
 
+We want to find the expected total number of storms in the next two years (years 1 and 2). We know that the expected number of storms depends on whether the year is in the good weather state or bad weather state where the expected number of storms are 1 and 3 respectively.
+
+\[E[N_1+N_2] = E[N_1] + E[N_2] = 1P_{GG}+3P_{GB} + 1P^2_{GG}+ 3P^2_{GB}\]
+
+Suppose row/column 1 is the state good year and row/column 2 of the probability transition matrix is teh state bad year:
+
+$$
+P^1 =\begin{bmatrix}
+\frac12 & \frac12\\
+\frac13 & \frac23
+\end{bmatrix}
+$$
+
+$$
+P^2 =\begin{bmatrix}
+\frac12 & \frac12\\
+\frac13 & \frac23
+\end{bmatrix}^2 = \begin{bmatrix}
+\frac3{12} & \frac7{12}\\
+\frac7{18} & \frac{11}{18}
+\end{bmatrix}
+$$
+
+\[E[N_1+N_2] = \frac12 + \frac32 + \frac3{12} + \frac{21}{12} = \frac{48}{12} = 4\]
+
+We expect there to be 4 storms in the next two years.
+
 ## Part b
 
+We want to find the probability that there are no storms in year 3. There are two cases we must consider: no storms in year 3, which is a bad year or no storms in year 3, which is a good year.
+
+\[P(N = 0) = P_G(0)P^3_{GG} + P_B(0)P^3_{GB}\]
+
+$$
+P^3 =\begin{bmatrix}
+\frac3{12} & \frac7{12}\\
+\frac7{18} & \frac{11}{18}
+\end{bmatrix}\begin{bmatrix}
+\frac12 & \frac12\\
+\frac13 & \frac23
+\end{bmatrix} = \begin{bmatrix}
+\frac{23}{72} & \frac{37}{72}\\
+\frac{43}{108} & \frac{65}{108}
+\end{bmatrix}
+$$
+
+\[P(N = 0) = e^{-1}\frac{23}{72} + e^{-3}\frac{37}{72} \approx 0.1431\]
+
+The probability of having no storms in year 3 is approximately **14.31%**.
+
 ## Part c
+
+We want to find the long-run average number of storms per year ($N_\pi$). To do this we want to find the proportion of time we spend in a good year and bad year respectively and multiply by their average (1 and 3):
+
+\[N_\pi = 1\pi_G+3\pi_B\]
+\[\pi_G = \frac12\pi_G + \frac13\pi_B\]
+\[\pi_B = \frac12\pi_G + \frac23\pi_B\]
+\[\pi_G + \pi_B = 1\]
+\[\pi_G = \frac{\frac13}{1 + \frac13 - \frac12} = \frac{\frac13}{\frac56} = \frac25\]
+\[\pi_B = 1 - \pi_G = \frac35\]
+
+\[N_\pi = \frac25+3\frac35 = \frac{11}5\]
+
+We expect there to be $\frac{11}5$ storms per year.
 
 # Chapter 4 Problem 33
 
