@@ -1,0 +1,36 @@
+---
+title: "Homework 06 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "10/20/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 4 Problem 17
+
+# Chapter 4 Problem 18
+
+# Chapter 4 Problem 21
+
+## Part a
+
+# Chapter 4 Problem 23
+
+## Part a
+
+## Part b
+
+## Part c
+
+# Chapter 4 Problem 33
+
+# Chapter 4 Problem 36
+
+
+
+
+
+
+
+
