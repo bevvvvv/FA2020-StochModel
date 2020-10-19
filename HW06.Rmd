@@ -23,6 +23,50 @@ Note that we can use similar logic when $p < \frac12$. Here we merely get a nega
 
 # Chapter 4 Problem 18
 
+Probability transition matrix below includes the two states coin 1 and coin 2. Note that this Markov Chain is both recurrent and irreducible. There is a single class and we know that it is recurrent, because the expected value that a tail eventually occurs follows from the Geometric distribution, which is a finite value.
+
+$$
+P =\begin{bmatrix}
+0.6 & 0.4\\
+0.5 & 0.5
+\end{bmatrix}
+$$
+
+## Part a
+
+We want to find the proportion of flips that uses coin 1, which can be denoted as $\pi_1$.
+
+\[\pi_1 = 0.6\pi_1 + 0.5\pi_2\]
+\[\pi_2 = 0.4\pi_1 + 0.5\pi_2\]
+\[\pi_1 + \pi_2 = 1\]
+
+\[\pi_1 = \frac{0.5}{1 + 0.5-0.6} = \frac{0.5}{0.9} = \frac59\]
+
+## Part b
+
+We want to find the probability that we use coin 2 at time 5 given that we started with coin 1: $P(X_5=2 |X_1=1)$. To find this we can use P^4 combined with transitions to coin 2.
+
+```{r}
+P <- matrix(c(0.6,0.5,0.4,0.5), nrow=2, ncol=2)
+P_5 <- P %*% P %*% P %*% P %*% P 
+P_5
+```
+
+So we get:
+
+\[P(X_5=2 |X_1=1) = P(X_5=2 |X_4=1)P(X_4=1 |X_1=1) + P(X_5=2 |X_4=2)P(X_4=2 |X_1=1)\]
+
+\[P^5_{12} = P_{12}P^4_{11}+P_{22}P^4_{12} = 0.4\frac59+0.5\frac49\]
+
+\[P^5_{12} = \frac49\]
+
+## Part c
+
+We want to know the proportion of times the flips land on heads. This is simply the given weight times the proportions we found before:
+
+\[\pi_H = 0.6\pi_1+0.5\pi_2 = 0.6\frac59 + 0.5\frac49\]
+\[\pi_H = \frac59\]
+
 # Chapter 4 Problem 21
 
 ## Part a
