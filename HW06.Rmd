@@ -9,6 +9,18 @@ output:
 
 # Chapter 4 Problem 17
 
+Here we look at the infinite random walk in Example 4.19 from the book. The random variable $Y_i$ is an indicator of whether we went to the state 1 higher than the current state or not: $Y_i = \{1, -1\}$. Suppose $p = P(Y_i=1) > \frac12$. We know that the state at time $n$ can be written as $\Sigma_{i=1}^nY_i$. The expected value of $Y_i$ is
+
+\[E[Y_i] = p + (p-1) = 2p-1\]
+
+When $p= \frac12$ this expected value is $2*\frac12-1 = 0$, so when $p > \frac12$ the expected value is $1 > E[Y_i] > 0$ (equal to $2p-1$). We are looking at the value $\Sigma_{i=1}^nY_i = n\overline{Y_n}$
+
+Recall the strong law of large numbers which states as $n \rightarrow \infty$, then $\overline{X_n} \rightarrow \mu$.
+
+Similarly we can say as $n \rightarrow \infty$ then $\overline{Y_n} \rightarrow 2p-1$, so $n\overline{Y_n} = \Sigma_{i=1}^nY_i \rightarrow \infty$, since we have infinity multiplied by a constant we get infinity. Since we just concluded that the state at time n will go to $\infty$ if $p > \frac12$, then we can say 0 is only visited finitely often, and therefore must be transient. Since transient is a class property and there is only one class the whole chain must be transient.
+
+Note that we can use similar logic when $p < \frac12$. Here we merely get a negative constant $0 > E[Y_i] > -1$. Therefore this proof holds for $p \neq \frac12$.
+
 # Chapter 4 Problem 18
 
 # Chapter 4 Problem 21
