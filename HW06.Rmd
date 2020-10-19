@@ -164,10 +164,72 @@ We expect there to be $\frac{11}5$ storms per year.
 
 # Chapter 4 Problem 33
 
+Probability transition matrix of which player serves.
+
+$$
+P^1 =\begin{bmatrix}
+p & 1-p\\
+q & 1-q
+\end{bmatrix}
+$$
+
+We want to find the proportion of points that are won by player 1, which is the proportion of time player 1 serves: $\pi_1$.
+
+\[\pi_1 = p\pi_1 + q\pi_2\]
+\[\pi_2 = (1-p)\pi_1 + (1-q)\pi_2\]
+\[\pi_1 + \pi_2 = 1\]
+\[\pi_1 = \frac{q}{1+q-p} = \frac{q}{q+(1-p)}\]
+\[\pi_2 = \frac{1-q}{q+(1-p)}\]
+
+The proportion of time that player 1 serves/wins a point is $\pi_1 = \frac{q}{q+(1-p)}$.
+
 # Chapter 4 Problem 36
 
+$$
+P^1 =\begin{bmatrix}
+0.4 & 0.6\\
+0.2 & 0.8
+\end{bmatrix}
+$$
 
+## Part a
 
+We want to determine the probability that a good message is sent on the second day.
+
+\[P(\text{"good"},n=1) = p_iP^n_{0i}= p_0P_{00} + p_1P_{01} = 0.4p_0 + 0.6p_1\]
+
+## Part b
+
+We want to determine the rpobability that a good message is sent onf the fifth day.
+
+\[P(\text{"good"},n=5) = p_iP^n_{0i} = p_0P^4_{00} + p_1P^4_{01}\]
+
+Let's calculate $P^4$:
+
+```{r}
+P <- matrix(c(0.4,0.2,0.6,0.8),nrow=2)
+P %*% P %*% P %*% P
+```
+
+\[P(\text{"good"},n=5) = 0.2512p_0 + 0.7488p_1\]
+
+## Part c
+
+We want to know the proportion of good messages in the long run. This is the probability $p_i$ times the proportion of time spent in each state.
+
+\[\pi_0 = 0.4\pi_0 + 0.2\pi_1\]
+\[\pi_1 = 0.6\pi_0 + 0.8\pi_1\]
+\[\pi_0 + \pi_1 = 1\]
+\[\pi_0 = \frac{0.2}{1+0.2-0.4} = \frac{0.2}{0.8} = \frac14\]
+\[\pi_1 = 1 - \pi_0 = \frac34\]
+
+This gives us the proportion of good messages:
+
+\[\pi_G = p_0\pi_0 + p_1\pi_1 = \frac{p_0}{4} + \frac{3p_1}{4}\]
+
+## Part d
+
+The proposition for a new Markov Chain gives two states: a good message is sent or a bad message is sent. This is not a Markov Chain. Since the probaility of seeing a good or bad message depends on the state in the first Markov Chain specified, then we break the Markov property, because the probability of say going from a good message state to a good message state depends more on just that it started in a good message state, it also depends on the underlying state from the first Markov Process.
 
 
 
