@@ -91,9 +91,25 @@ b <- c(0,0,1)
 solve(A,b)
 ```
 
-35.29% of employees are in the first classification, 41.18% are in the second classification, and 23.523 are in the third classification.
+35.29% of employees are in the first classification, 41.18% are in the second classification, and 23.523% are in the third classification.
 
 # Chapter 4 Problem 30
+
+The probability of seeing a car given that we see a truck is $\frac34$. The probability of seeing a truck given that we see a car is $\frac15$. The proportion of trucks we see is therefore the fraction of vehicles on the road that are trucks.
+
+\[\pi_C = \frac45\pi_C + \frac34\pi_T\]
+\[\pi_T = \frac15\pi_C + \frac14\pi_T\]
+\[\pi_C + \pi_T = 1\]
+
+```{r}
+pi_c <- c(-1/5,1)
+pi_t <- c(3/4,1)
+A <- cbind(pi_c, pi_t)
+b <- c(0,1)
+solve(A,b)
+```
+
+Solving the system we get that 4 out of every 19 vehicles on the road are trucks.
 
 # Chapter 4 Problem 37
 
