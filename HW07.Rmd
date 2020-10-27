@@ -125,6 +125,24 @@ The limit here is clearly again the long run probability of P, which is the same
 
 # Chapter 4 Problem 42
 
+## Part a
+
+\[\Sigma_{i\in A}\Sigma_{j\in A^c}\pi_iP_{ij}\]
+
+There are two parts to the statement above. The first part of the statement is the proportion of time spent in set A. The second part of the statement is the  probability of transitioning from the given state in A to a certain state not in A. When you sum this values together you get the proportion of time spent transitioning into the set $A^c$ from A.
+
+## Part b
+
+\[\Sigma_{i\in A^c}\Sigma_{j\in A}\pi_iP_{ij}\]
+
+The difference between this statement and the previous statement is that the proportion term relates to the state $A^c$ and the transition probability term relates to transitioning from $A^c$ to A. Therefore we are looking at a reverse of the previous statement, so this statement represents the proportion of time spent transitioning into the set A from $A^c$.
+
+## Part c
+
+As per our previous two interpretations, we would conclude that this identity states that the proportion of time spent transitioning from set A to $A^c$ is equal to the proportion of time spent transitioning from set $A^c$ to A. If the value were zero for example, then the two sets do not communicate. If this equality were say for example $\frac12$ on the other hand, we could conclude that the process is flipping between states in each set.
+
+We basically have one rate saying how often we flip between A and $A^c$.
+
 # Chapter 4 Problem 67
 
 ## Part a
