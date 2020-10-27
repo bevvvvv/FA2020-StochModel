@@ -145,17 +145,109 @@ We basically have one rate saying how often we flip between A and $A^c$.
 
 # Chapter 4 Problem 67
 
+Constraints
+
+* Urn contains N balls
+* White and Black balls
+* Coin with prob p of heads
+* Heads -> replace random ball with white
+* Tails -> replace random ball with black
+
+Say $X_n$ denotes number of white balls in the urn at stage n.
+
 ## Part a
+
+The proposed Markov chain is indeed a Markov chain. The states were denoted as the number of white balls in the urn at stage n. This amount depends on two factors: the previous number of white balls (previous state) and the coin flip/ball drawn. The previous number of white balls is contained within the state and the coin flip/ball drawn follows the same procedure at each state, so it does not depend on the current/previous states. Therefore we satisfy the Markov property, because the value of the current state depends only on the previous state.
 
 ## Part b
 
+The Markov chain has a single recurrent class. The period is 1, since if there are x white balls, a heads is flipped and then one of the x white balls is chosen, we end in the same state x. Since the transition probability $P_{ii} > 0$ the gcd of possible paths must be 1. This makes the chain aperiodic. These statements only hold true, because the probability of the coin flip of heads cannot be 0 or 1.
+
 ## Part c
+
+The chain has N+1 states. If x denotes the number of white balls we then have the states $N, N-1, ... 0$, since $x + y = N$. At time $i$ we have either subtract one white, stay at the same number of whites, or increase the number of whites by one.
+
+The first case happens when we draw a white and replace it with a black. This occurs with probability $P(x-1_{i+1}|x_i) =  \frac{x}{N}* (1-p)$. The second case happens when we draw a white or black ball, then replace it with the same type. This happens with probability $P(x_{i+1}|x_i) = \frac{x}{N} * p + \frac{N-x}{N} * (1-p)$. Finally the third case happens when we draw a black and replace it with a white. This happens with probability $P(X+1_{i+1}|x_i) = \frac{N-x}{N} * p$.
 
 ## Part d
 
+Let's show the transition probability matrix for N=2, where we have three states: 0, 1, 2.
+
+\[P_{11} = \frac12p + \frac12(1-p) = \frac12p-\frac12p+\frac12 = \frac12\]
+
+$$
+P =\begin{bmatrix}
+1-p & p & 0 \\
+\frac{1-p}{2} & \frac12 & \frac{p}{2} \\
+0 & 1-p & p 
+\end{bmatrix}
+$$
+
+Now we can find the proportion of time in each state by setting up our system of equations:
+
+\[\pi_0 = (1-p)\pi_0 + \frac{1-p}{2}\pi_1\]
+\[\pi_1 = p\pi_0 + \frac12\pi_1 + (1-p)\pi_2\]
+\[\pi_2 = \frac{p}{2}\pi_1 + p\pi_2\]
+\[\pi_0 + \pi_1 + \pi_2 = 1\]
+
+Start with equation 1:
+
+\[0 = -p\pi_0 + \frac{1-p}{2}\pi_1\]
+\[\pi_0 = \frac{1-p}{2p}\pi_1\]
+
+Next we use equation 3:
+
+\[(1-p)\pi_2 = \frac{p}{2}\pi_1\]
+\[\pi_2 = \frac{p}{2-2p}\pi_1\]
+
+Plug into equation 4:
+
+\[\frac{1-p}{2p}\pi_1 + \pi_1 + \frac{p}{2(1-p)}\pi_1 = 1\]
+\[\frac{(1-p)^2}{2p(1-p)}\pi_1 + \frac{2p(1-p)}{2p(1-p)}\pi_1 + \frac{p^2}{2p(1-p)}\pi_1 = 1\]
+\[\frac{(1-p)^2 + 2p(1-p) + p^2}{2p(1-p)}\pi_1 = 1\]
+
+The top part of the fraction is a typical product of a squared term:
+
+\[\frac{(p+1-p)^2}{2p(1-p)}\pi_1 = 1\]
+\[\pi_1 = 2p(1-p)\]
+
+Now we can plug back in to get the other two propotions:
+
+\[\pi_0 = \frac{1-p}{2p}(2p(1-p)) = (1-p)^2\]
+\[\pi_2 = \frac{p}{2-2p}(2p(1-p)) = p^2\]
+
+In summary the proportion of time spent with zero white balls in the urn is $(1-p)^2$, the proportion of time spent with 1 white ball in the urn is $2p(1-p)$ and the proportion of time spent with 2 white balls in the urn is $p^2$.
+
 ## Part e
 
+In the general case I would expect the stationary probabilities to be $\binom{n}{i}p^{i}(1-p)^{n-i}$ for the $i^{th}$ state where $i$ ranges from 0 to $n$. The first part is how many ways the following balls are chosen, and I just pattern matched the other two terms.
+
 ## Part f
+
+For these guesses to work, we must show they satisfy two conditions:
+
+\[\pi_j = \Sigma_i\pi_iP_{ij}\]
+\[\Sigma_j\pi_j = 1\]
+
+Let's look at the second condition first. We can use the summation of a binomial series to get our answer.
+
+\[\Sigma_{j=0}^n \binom{n}{i}p^{i}(1-p)^{n-i} = (p + 1 - p)^n = 1^n = 1\]
+
+For the first condition we look at state x.
+
+\[\pi_x = \pi_{x-1}P_{x-1,x} + \pi_xP_{x,x} + \pi_{x+1}P_{x+1,x}\]
+
+We can plug in the transition probabilites from part c and our proposed stationary equation. Let's do look at each term:
+
+\[\pi_x = \binom{n}{x}p^{x}(1-p)^{n-x}\]
+\[\pi_{x-1}P_{x-1,x} = \binom{n}{x-1}p^{x-1}(1-p)^{n-x+1}\frac{p(n-x+1)}{n}\]
+\[\pi_{x}P_{x,x} = \binom{n}{x}p^{x}(1-p)^{n-x}(\frac{px}{n} + \frac{(1-p)(n-x}{n})\]
+\[\pi_{x+1}P_{x+1,x} = \binom{n}{x+1}p^{x+1}(1-p)^{n-x-1}(\frac{(1-p)x}{n})\]
+
+Adding these together we get:
+
+\[\binom{n}{x}p^{x}(1-p)^{n-x} = \binom{n}{x-1}p^{x-1}(1-p)^{n-x+1}\frac{p(n-x+1)}{n} + \binom{n}{x}p^{x}(1-p)^{n-x}(\frac{px}{n} + \frac{(1-p)(n-x}{n}) + \binom{n}{x+1}p^{x+1}(1-p)^{n-x-1}(\frac{(1-p)x}{n})\]
+
 
 
 
