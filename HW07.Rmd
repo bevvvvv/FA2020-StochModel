@@ -75,6 +75,24 @@ Solving this system of equations we get that the runner will leave barefooted 1 
 
 # Chapter 4 Problem 29
 
+To find the percentage of employees in each classification we find the long run proportion of time spent in each of the three states.
+
+\[\pi_0 = 0.7\pi_0 + 0.2\pi_1 + 0.1\pi_2\]
+\[\pi_1 = 0.2\pi_0 + 0.6\pi_1 + 0.4\pi_2\]
+\[\pi_2 = 0.1\pi_0 + 0.2\pi_1 + 0.5\pi_2\]
+\[\pi_0 + \pi_1 + \pi_2 = 1\]
+
+```{r}
+pi_0 <- c(-0.3,0.2,1)
+pi_1 <- c(0.2,-0.4,1)
+pi_2 <- c(0.1,0.4,1)
+A <- cbind(pi_0, pi_1, pi_2)
+b <- c(0,0,1)
+solve(A,b)
+```
+
+35.29% of employees are in the first classification, 41.18% are in the second classification, and 23.523 are in the third classification.
+
 # Chapter 4 Problem 30
 
 # Chapter 4 Problem 37
