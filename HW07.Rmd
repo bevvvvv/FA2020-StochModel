@@ -1,0 +1,106 @@
+---
+title: "Homework 07 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "10/27/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+```{r include=FALSE}
+library(dplyr)
+```
+
+# Chapter 4 Problem 19
+
+We want to calculate the proportion of days that it rains.
+
+To determine the proportion of days that it rains we can calculate the proportion of time spent in each state, and then use the probability of it raining to determine the proportion of time it rains. This gives us our system of equations:
+
+\[\pi_0 = 0.7\pi_0+0.5\pi_1\]
+\[\pi_1 = 0.4\pi_2+0.2\pi_3\]
+\[\pi_2 = 0.3\pi_0+0.5\pi_1\]
+\[\pi_3 = 0.6\pi_2+0.8\pi_3\]
+\[\pi_0+\pi_1+\pi_2+\pi_3 = 1\]
+
+We can solve this system of equations through linear algebra:
+
+```{r}
+pi_0 <- c(-0.3,0,0.3,1)
+pi_1 <- c(0.5,-1,0.5,1)
+pi_2 <- c(0,0.4,-1,1)
+pi_3 <- c(0,0.2,0,1)
+A <- cbind(pi_0, pi_1, pi_2, pi_3)
+b <- c(0,0,0,1)
+solve(A,b)
+```
+
+We can then use the two states where it rained today (0 and 1) to calculate:
+
+\[\pi_R = \pi_0 + \pi_1 = 0.25 + 0.15 = 0.4 = \frac25\]
+
+It rains about 40% of the days in this random process.
+
+# Chapter 4 Problem 25
+
+To determine the proportion of the time that the runner leaves the house barefooted we must first determine our Markov chain. Clearly the states in this problem dictate where the shoes are placed. Given k shoes we have the states $(x,y)$ where $x + y = k$, so we have a total of k+1 states: $(k, 0), (k-1, 1) ... (0, k)$. We can also phrase the states concisely in four:
+
+1. Running with shoes and left from the front.
+2. Running barefooted and left from the front.
+3. Running with shoes and left from the back.
+4. Running barefooted and left from the back.
+
+Consider the first state. If the runner left with shoes and left from the front door, then the next time they leave from the front there are k states in which they leave with shoes. The same logic follows for the back.
+
+This would give us the probability transition matrix:
+
+$$
+P =\begin{bmatrix}
+\frac{k}{k+1}  & \frac1{k+1} & 0 & 0\\
+\frac{k}{k+1}  & \frac1{k+1} & 0 & 0 \\
+0 & 0 & \frac{k}{k+1}  & \frac1{k+1} \\
+0 & 0 & \frac{k}{k+1}  & \frac1{k+1}
+\end{bmatrix}
+$$
+
+This gives us the equations:
+
+\[\pi_0 = \frac{k}{k+1}\pi_0 + \frac{k}{k+1}\pi_1\]
+\[\pi_1 = \frac{1}{k+1}\pi_0 + \frac{1}{k+1}\pi_1\]
+\[\pi_2 = \frac{k}{k+1}\pi_2 + \frac{k}{k+1}\pi_3\]
+\[\pi_3 = \frac{1}{k+1}\pi_2 + \frac{1}{k+1}\pi_3\]
+\[\pi_0 + \pi_1 + \pi_2 + \pi_3 = 1\]
+
+Solving this system of equations we get that the runner will leave barefooted 1 out of every k times.
+
+# Chapter 4 Problem 29
+
+# Chapter 4 Problem 30
+
+# Chapter 4 Problem 37
+
+# Chapter 4 Problem 42
+
+# Chapter 4 Problem 67
+
+## Part a
+
+## Part b
+
+## Part c
+
+## Part d
+
+## Part e
+
+## Part f
+
+
+
+
+
+
+
+
+
+
