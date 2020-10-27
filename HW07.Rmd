@@ -113,6 +113,16 @@ Solving the system we get that 4 out of every 19 vehicles on the road are trucks
 
 # Chapter 4 Problem 37
 
+Recall that stationary probabilities are the long run proportions in remaining in a certain state. This proportion can be denoted as a limiting probability:
+
+\[\pi_j = lim_{n\rightarrow\infty} P_{ij}^n\]
+
+If $Q_{ij}$ is defined as the $k^{th}$ transitional probability of P, then it must have the same stationary probabilties. You can see this via the limit on the stationary probabilities of $Q_{ij}$:
+
+\[\pi_j = lim_{n\rightarrow\infty} Q_{ij}^n = lim_{n\rightarrow\infty} (P_{ij}^k)^n = lim_{n\rightarrow\infty} P_{ij}^{kn}\]
+
+The limit here is clearly again the long run probability of P, which is the same value we had before, so the stationary probabilities for both Markov chains, must be the same.
+
 # Chapter 4 Problem 42
 
 # Chapter 4 Problem 67
