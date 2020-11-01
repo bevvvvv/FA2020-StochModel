@@ -1,0 +1,67 @@
+---
+title: "Homework 08 - STAT416"
+author: "Joseph Sepich (jps6444)"
+date: "11/03/2020"
+output:
+  pdf_document:
+    number_sections: false
+---
+
+# Chapter 4 Problem 70
+
+## Part a
+
+In this Markov chain the state is the number of $m$ black balls in the first urn. This means that there are $m + 1$ total states: $0,1,2...,m$.
+
+The state $i$ can only transition from $i$ to either $i-1$, $i$, or $i+1$. Losing one black ball means pulling a black ball from urn 1 and a white ball from urn 2. This occurs with probability $P_{i,i-1}=\frac{i}{m}\frac{i}{m} = \frac{i^2}{m^2}$. Gaining one black ball means pulling a white ball from urn 1 and a black ball from urn 2. This occurs with probability $P_{i,i+1}=\frac{m-i}{m}\frac{m-i}{m} = \frac{(m-1)^2}{m^2}$. Maintaining the same number of black balls in urn 1 involves pulling the same color from both urns. This happens with probability $P_{i,i} = \frac{i}{m}\frac{m-i}{m} + \frac{m-i}{m}\frac{i}{m} = \frac{2i(m-i)}{m^2}$.
+
+## Part b
+
+I think that the limiting probabilities of this chain would be the possible ways to have i black balls in urn 1 out of the possible ways to divide the balls.
+
+## Part c
+
+\[\pi_i = \pi_{i-1}\frac{(m-1)^2}{m^2} + \pi_i\frac{2i(m-i)}{m^2} + \pi_{i+1}\frac{i^2}{m^2}\]
+
+This chain is isolated to going up or down in the current state and does not involve loops, so it is reversible. If that is true then:
+
+\[\pi_iP_{i,i+1} = \pi_{i+1}P_{i+1,i}\]
+\[\frac{\pi_{i+1}}{\pi_i} = \frac{P_{i,i+1}}{P_{i+1,i}} = (\frac{m-i}{i+1})^2\]
+
+If this is true we can then go back and prove $\pi_i$ by induction.
+
+\[\frac{\pi_1}{\pi_0} = m^2\]
+\[\frac{\pi_2}{\pi_0} =(\frac{m}{1}\frac{m-1}{2})^2=\binom{m}{2}^2\]
+
+Continuing this by induction we get
+
+\[\frac{\pi_i}{\pi_0} = \binom{m}{i}^2\]
+
+From this result we then know how often $\pi_i$ will happen. We just add in the denominator, which includes all possible options:
+
+
+\[\pi_i = \frac{\binom{m}{i}^2}{\binom{m}{0}^2+\binom{m}{1}^2+...+\binom{m}{m}^2}\]
+
+
+# Chapter 4 Problem 72
+
+# Chapter 4 Problem 73
+
+# Chapter 5 Problem 1
+
+# Chapter 5 Problem 4
+
+# Chapter 5 Problem 12
+
+## Part a
+
+# Chapter 5 Problem 14
+
+## Part a
+
+# Chapter 5 Part 19
+
+# Problem A
+
+
+
