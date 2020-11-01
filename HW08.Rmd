@@ -88,6 +88,18 @@ The stationary probability involes two components. Player j is challenge as the 
 
 # Chapter 5 Problem 1
 
+\[T \text{~} Exp(\lambda = 2)\]
+
+## Part a
+
+\[P(T > \frac12) = F(\frac12) = 1-e^{-1} \approx 0.6321\]
+
+## Part b
+
+Here we can apply the memoryless property:
+
+\[P(T > 12 + \frac12 | T > 12) = P(T>\frac12) \approx 0.6321\]
+
 # Chapter 5 Problem 4
 
 # Chapter 5 Problem 12
