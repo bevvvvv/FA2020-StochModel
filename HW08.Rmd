@@ -68,6 +68,24 @@ Therefore from substitution of the adjacent rates of transition we can conclude 
 
 # Chapter 4 Problem 73
 
+## Part a
+
+There are k possible states in this Markov chain. State i as stated in the problem corresponds to player i winning the game. There are two cases when a game is played. The current winner/state could win or the challenger (randomly selected palyer) could win. The transition probability if player i wins is $P_{ii} = \frac{v_i}{(v_i+v_j)}$, which is dependent on challenger j. The transition probability if a challenger player j wins is $P_{ij} = \frac{v_j}{k(v_i+v_j)}$.
+
+## Part b
+
+The stationary probability involes two components. Player j is challenge as the winner and remains the winner, or player j challenges player i and becomes the winner.
+
+\[\pi_j = \pi_jP_{jj} + \pi_iP_{ij}\]
+\[\pi_j = \pi_j\frac{v_j}{(v_i+v_j)} + (1-\pi_j)\Sigma_i\frac{v_i}{(v_i+v_j)}\]
+\[\pi_j = \pi_j\frac{v_j}{(v_i+v_j)} + \Sigma_i\frac{v_i}{(v_i+v_j)} - \Sigma_i\frac{\pi_jv_i}{(v_i+v_j)}\]
+
+## Part c
+
+## Part d
+
+## Part e
+
 # Chapter 5 Problem 1
 
 # Chapter 5 Problem 4
