@@ -45,6 +45,27 @@ From this result we then know how often $\pi_i$ will happen. We just add in the 
 
 # Chapter 4 Problem 72
 
+We know that in a time reversible Markov chain the following rate between i and j is equal to the rate between j and i and j and k:
+
+\[\pi_iP_{ij} = \pi_jP_{ji}\]
+\[\pi_jP_{jk} = \pi_kP_{kj}\]
+
+The transition rate of i to j to k would be represented as:
+
+\[\pi_iP_{ij}P_{jk}\]
+
+We are trying to prove that 
+
+\[\pi_iP_{ij}P_{jk} = \pi_kP_{kj}P_{ji}\]
+
+
+We can substitute using the first two equations:
+
+\[\pi_iP_{ij}P_{jk} = \pi_iP_{ij}\pi_kP_{kj}/\pi_j = \pi_jP_{ji}\pi_kP_{kj}/\pi_j = \pi_kP_{kj}P_{ji}\]
+
+Therefore from substitution of the adjacent rates of transition we can conclude that the rate of transition from i to j to k is the same as from k to j to i.
+
+
 # Chapter 4 Problem 73
 
 # Chapter 5 Problem 1
