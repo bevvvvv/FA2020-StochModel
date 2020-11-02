@@ -92,15 +92,32 @@ The stationary probability involes two components. Player j is challenge as the 
 
 ## Part a
 
-\[P(T > \frac12) = F(\frac12) = 1-e^{-1} \approx 0.6321\]
+\[P(T > \frac12) = 1 - F(\frac12) = 1 - 1 + e^{-1} = e^{-1}\]
 
 ## Part b
 
 Here we can apply the memoryless property:
 
-\[P(T > 12 + \frac12 | T > 12) = P(T>\frac12) \approx 0.6321\]
+\[P(T > 12 + \frac12 | T > 12) = P(T>\frac12) = e^{-1}\]
 
 # Chapter 5 Problem 4
+
+## Part a
+
+If the service time of each clerk is exactly 10 minutes, then the probability A is still in the post office after B and C have left is zero. In this case A and B would enter, be served in ten minutes and leave, then C would be served for 10 minutes and leave.
+
+## Part b
+
+A could would only still be in the post office after B and C are service if the value of service A is $i=3$. The sum of B and C would have to be 2.
+
+\[P(A > B + C) = \frac13(\frac13\frac13) = \frac{1}{27}\]
+
+## Part c
+
+Service times are Exponentially distributed with parameter $\mu$. Recall that the sum of exponentially distributed random variables is a 
+
+\[P(A > B + C) = \int_0^\infty P(A>B+C|C=x)f_c(x)dx = \int_0^\infty P(A>B+x)\mu e^{-\mu x}dx\]
+\[P(A > B + C) = \int_0^\infty\frac12e^{-\mu x}\mu e^{-\mu x}dx=\frac{\mu}{2}\int_0^\infty e^{-2\mu x}dx = \frac{\mu}{2}(\frac{-e^{-2\mu x}}{2\mu})|_0^\infty = \frac14\]
 
 # Chapter 5 Problem 12
 
