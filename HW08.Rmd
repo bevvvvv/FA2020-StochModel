@@ -123,9 +123,15 @@ Service times are Exponentially distributed with parameter $\mu$. Recall that th
 
 ## Part a
 
+\[P(X_1 < X_2< X_3) =  P(X_1 <X_2) P(X_2<X_3) = \frac{\lambda_1\lambda_2}{(\lambda_1+\lambda_2)(\lambda_2+\lambda_3)}\]
+
 # Chapter 5 Problem 14
 
 ## Part a
+
+We want to find the probability that A arrives before and departs after B. This implies that the arrival time for A is smaller than B, but the sum of arrival time and time spent for A is greater than B.
+
+\[P(A<B)P(A+S_A > B+S_B| B>A,S_A>B) = P(A<B)P(B < S_A)P(S_A < S_B) = \frac{\lambda_A\lambda_b\mu_A}{(\lambda_A+\lambda_B)(\lambda_B+\mu_A)(\mu_A+\mu_B)}\]
 
 # Chapter 5 Part 19
 
