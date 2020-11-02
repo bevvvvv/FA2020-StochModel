@@ -135,7 +135,37 @@ We want to find the probability that A arrives before and departs after B. This 
 
 # Chapter 5 Part 19
 
+\[E[R_A] = E[R_A|W=A] + E[R_A|W=B] = E[R_A|W=A] + 0 = E[R_A|W=A] \]
+\[E[R_A|W=A] = Re^{-\alpha t}P(A<B) = \frac{\lambda_ARe^{-\alpha t}}{\lambda_A+\lambda_B}\]
+
+We expect A to earn $\frac{\lambda_ARe^{-\alpha t}}{\lambda_A+\lambda_B}$.
+
 # Problem A
 
+Recall that a Markov chain is reversible if $Q_{ij} = P_{ij} = \pi_jP_{ji}/\pi_i$. We had calculated the stationary probabilities.
 
 
+```{r}
+pi_0 <- c(-0.3,0.2,1)
+pi_1 <- c(0.2,-0.4,1)
+pi_2 <- c(0.1,0.4,1)
+A <- cbind(pi_0, pi_1, pi_2)
+b <- c(0,0,1)
+solve(A,b)
+```
+
+We can see if this equality holds:
+
+```{r}
+stationary <- solve(A,b)
+P <- matrix(c(0.7,0.2,0.1,0.2,0.6,0.4,0.1,0.2,0.5), nrow=3)
+for (i in 1:3) {
+  for (j in 1:3) {
+    #print(P[i,j])
+    equivalent <- stationary[j]*P[j,i]/stationary[i]
+    print(equivalent == P[i,j])
+  }
+}
+```
+
+We can see that the Markov chain is not in fact time reversible. An example is going from state 1 to state 2.
