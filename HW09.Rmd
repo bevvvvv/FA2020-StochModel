@@ -9,6 +9,32 @@ output:
 
 # Problem 21
 
+Problem Constraints
+
+* server $i; i \in (1,2)$
+* service times: Exp$(\mu_i)$
+* servuce acts as queue (first 1 then 2)
+* you enter with server 1 busy
+
+Since an exponential distribution is memoryless we do not need to know how long the first server is busy before we arrived. The total amount of time spent in the system will be the time spent in service with server 1 and then with server 2. If server 2 is slower than server 1 when you are served then you must wait for server 2 to finish before transferring. Our total time is defined as the summation of:
+
+1. Expected waiting time for server 1
+2. Expected time until next completed server
+3. Expected remaining time (wait + served by 2)
+
+The first quantity is merely the expected value of an exponential distribution: $E[W_1] = E[X_1] = \frac{1}{\mu_1}$. The second quantity we want to find the minimum of the two servers. This we defined as the exponential random variable with the sum of parameters $\mu_1 + \mu_2$. This gives the expected wait time of $E[W_2] = E[min(X_1+X_2)] = E[Z] = \frac{1}{\mu_1+\mu_2}$
+
+The third quantity has two cases, which correponds to who finished first. If server 2 finishes first, then we expect to wait the amount of time the first server has left (memoryless, so its just the expectation) plus the expected amount of time of server 2. If server 2 finishes last, then we must wait for server 2 twice, which is merely the expected time of server 2 to finish twice. This gives us the following value:
+
+\[E[W_3] = E[W_3|X_1<X_2]P(X_1<X_2)+E[W_3|X_2<X_1]P(X_2<X_1)\]
+\[E[W_3] = (\frac{2}{\mu_2})\frac{\mu_1}{\mu_1+\mu_2}+(\frac{1}{\mu_1}+\frac{1}{\mu_2})\frac{\mu_2}{\mu_1+\mu_2}\]
+
+This gives us our overall expected time in the system:
+
+\[E[W] = E[W_1] + E[W_2] + E[W_3]\]
+\[E[W] = \frac{1}{\mu_1} + \frac{1}{\mu_1+\mu_2} + (\frac{2}{\mu_2})\frac{\mu_1}{\mu_1+\mu_2}+(\frac{1}{\mu_1}+\frac{1}{\mu_2})\frac{\mu_2}{\mu_1+\mu_2}\]
+\[E[W] = \frac{2}{\mu_1} + \frac{1}{\mu_1+\mu_2} + \frac{2\mu_1}{\mu_2(\mu_1+\mu_2)}\]
+
 # Problem 30
 
 # Problem 34
