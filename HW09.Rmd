@@ -51,6 +51,42 @@ We must find the addtional lifetime of one pet, given the other has died.
 
 # Problem 34
 
+Problem Constraints
+
+* A and B need kidneys (ordered A then B)
+* death occurs Exp($\mu_i$)
+* kidneys arrive Poisson($\lambda$)
+
+## Part a
+
+A will receive a kidney if A lives longer than the amount of time before the first kidney arrives.
+
+\[P(\text{A gets kidney}) = P(T_1 <X_A)\]
+
+From lemma 5.2 we know that $T_1$ is exponentially distributed with rate $\lambda$. Therefore we can use our known formula for comparing two exponential random variables:
+
+\[P(T_1 <X_A) = \frac{\lambda}{\lambda + \mu_A}\]
+
+## Part b
+
+B will receive a kidney in two cases. A dies first and the first kidney comes before B dies or two kidneys arrive before either person dies. These can be described using the minimum of the three exponential random variables $T_1,X_A,X_B$, which is an exponential random variables with rate $\lambda+\mu_A+\mu_b$. (Note that we use Proposition 5.4 to expand the exponential distributed R.V. to $T_2$).
+
+\[P(\text{B gets kidney})=P(T_1<X_B)P(X_A=min(T_1,X_A,X_B))+P(T_2<X_B)P(T_1=min(T_1,X_A,X_B))\]
+\[P(\text{B gets kidney})=\frac{\lambda}{\lambda+\mu_B}\frac{\mu_A}{\lambda+\mu_A+\mu_B}+\frac{\lambda}{\lambda+\mu_b}\frac{\mu_A}{\lambda+\mu_A+\mu_B}\]
+\[P(\text{B gets kidney})=(\frac{\lambda}{\lambda+\mu_B})(\frac{\lambda+\mu_A}{\lambda+\mu_A+\mu_B})\]
+
+## Part c
+
+Both A and B will not receive a kidney if the first kidney arrives after they both dies. This means we want to determine the probability:
+
+\[P(X_A,X_B<T_1) = P(X_A<T_1)P(X_B<T_1) = \frac{\mu_A}{\lambda+\mu_A}\frac{\mu_B}{\lambda+\mu_B}\]
+
+## Part d
+
+Both A and B will receive new kidneys if the first kidney arrives before A dies and the second kidney arrives before B dies:
+
+\[P(\text{Both get kidney}) = P(T_2<X_B)P(T_1=min(T_1,X_A,X_B)) =\frac{\lambda}{\lambda+\mu_b}\frac{\mu_A}{\lambda+\mu_A+\mu_B}\]
+
 # Problem 35
 
 # Problem 38
