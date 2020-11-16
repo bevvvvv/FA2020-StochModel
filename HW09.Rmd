@@ -37,6 +37,18 @@ This gives us our overall expected time in the system:
 
 # Problem 30
 
+Problem Constraints
+
+* Cat and Dog
+* Lifetime are exponential with rate $\lambda_i;i=c,d$
+
+We must find the addtional lifetime of one pet, given the other has died.
+
+\[E[L] = E[L_c|D=d]P(X_d<X_c)+E[L_d|D=c]P(X_c<X_d)\]
+\[E[L] = \frac{1}{\lambda_c}\frac{\lambda_d}{\lambda_c+\lambda_d}+\frac{1}{\lambda_d}\frac{\lambda_c}{\lambda_c+\lambda_d}\]
+\[E[L] = \frac{\lambda_d\lambda_d}{\lambda_d\lambda_c(\lambda_c+\lambda_d)}+\frac{\lambda_c\lambda_c}{\lambda_c\lambda_d(\lambda_c+\lambda_d)}\]
+\[E[L] = \frac{\lambda_c^2+\lambda_d^2}{\lambda_c\lambda_d(\lambda_c+\lambda_d)}\]
+
 # Problem 34
 
 # Problem 35
