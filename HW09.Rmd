@@ -89,8 +89,6 @@ Both A and B will receive new kidneys if the first kidney arrives before A dies 
 
 # Problem 35
 
-FINISH THIS
-
 \[P(t < T_1 < t+h|T_1>t) = \lambda_{T_1}(t)h+o(h)\]
 \[P(t < T_1 < t+h|T_1>t)=\frac{P(t < T_1 < t+h,T_1>t)}{P(T_1>t)}\]
 
@@ -98,7 +96,7 @@ Recall that $P(T_1>t)=P(N(t)=0)$
 
 \[P(t < T_1 < t+h|T_1>t)=\frac{P(N(t+h)=1,N(t)=0)}{P(N(t)=0)}=\frac{P(N(t+h)-N(t)=1)}{P(N(t)=0)}\]
 \[\lambda_{T_1}(t)h+o(h) = \frac{\lambda+o(h)}{e^{-\lambda t}}\]
-\[1 =e^{-\lambda t} + \lambda + \lambda_{T_1}(t)h\]
+\[\lambda_{T_1}(t)h = \frac{\lambda}{e^{-\lambda t}}\]
 
 # Problem 38
 
@@ -153,11 +151,33 @@ Recall the form of our gamma R.V.:
 
 \[f(s)=2.5e^{-2.5s}\frac{(2.5s)^{195}}{195!}\]
 
-GAMMA CDF
+So we can calculate this value through the CDF of the gamma distribution:
+
+```{r}
+pgamma(67.2, shape=196,rate=2.5)
+```
+
+The probability that an individual dies before age 67.2 is 1.877%.
 
 ## Part d
 
+The probability for an individual reaching 90 is also the complement of an individual dies before 90:
+
+```{r}
+1 - pgamma(90, shape=196,rate=2.5)
+```
+
+The probability that an individual reaches age 90 is 2.271%.
+
 ## Part e
+
+The probability for an individual reaching 100 is the complement of an individual dying before 100:
+
+```{r}
+1 - pgamma(100, shape=196,rate=2.5)
+```
+
+The probability that an individual reaches age 100 is 0.018%.
 
 # Problem 41
 
