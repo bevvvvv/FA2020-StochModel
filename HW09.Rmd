@@ -89,6 +89,8 @@ Both A and B will receive new kidneys if the first kidney arrives before A dies 
 
 # Problem 35
 
+FINISH THIS
+
 \[P(t < T_1 < t+h|T_1>t) = \lambda_{T_1}(t)h+o(h)\]
 \[P(t < T_1 < t+h|T_1>t)=\frac{P(t < T_1 < t+h,T_1>t)}{P(T_1>t)}\]
 
@@ -125,8 +127,86 @@ We already know $E[N_1]=\lambda_1+\lambda_2$ and $E[N_2]=\lambda_2+\lambda_3$.
 
 # Problem 39
 
+Here we have a Poisson process with $\lambda=2.5$. After 196 events a person dies.
+
+## Part a
+
+The mean lifetime of an individual is the mean time it takes for 196 events in this process. This can be denoted as:
+
+\[E[S_{196}]\]
+
+Recall that $S_n$ follows a gamma distribution with parameters $n=196$ and $\lambda=2.5$.
+
+Thus we get $E[S_{196}] = 196/2.5 = 78.4$. The mean lifetime is 78.4 years.
+
+## Part b
+
+Again we can find the variance of a lifetime of an individual as the varaince to the Gamma distributed R.V. $S_{196}$. This is:
+
+\[Var(S_{196}) = \frac{196}{(2.5^2)}=31.36\]
+
+## Part c
+
+\[P(S_{196} <67.2) + F_{S_{196}}(67.2)\]
+
+Recall the form of our gamma R.V.:
+
+\[f(s)=2.5e^{-2.5s}\frac{(2.5s)^{195}}{195!}\]
+
+GAMMA CDF
+
+## Part d
+
+## Part e
+
 # Problem 41
+
+Since the first event of each component process is exponentially distributed then we know the $P(T_{11}<T_{12}) = \frac{\lambda_1}{\lambda_1+\lambda_2}$
 
 # Problem 43
 
+Problem Constraints
+
+* Customers arrive at rate $\lambda$
+* Customer in system departs when one arrives
+* Server 1 then 2
+* Exponential serve times $\mu_i$
+
+We want to know the proportion of entering customers that complete their service with server 2. This is equal to the probability any given customer is fully served. This occurs when both servers finish before a new arrival comes. A new arrival comes with rate $\lambda$ in a Poisson process.
+
+\[P(\text{customer is served}) = P(W_1+W_2<T_1)\]
+
+We can also rephrase the sum $W_1 + W_2$ as a Gamma distribution with parameters $n=2$ and $\lambda=\mu_1+\mu_2$. Now consider a Poisson process with rate $\lambda + \mu_1 + \mu_2$ with subprocesses $W_1+W_2$ and $T_1$. An arrival is of type $W_1+W_2$ with probability $\frac{\mu_1 + \mu_2}{\lambda + \mu_1 + \mu_2}$ and the arrival is of type $T_1$ with probability $\frac{\lambda}{\lambda + \mu_1 + \mu_2}$. Now we can say what is the probability that all the arrivals before time $t=3$ come from the first type $W_1+W_2$. We stated with happens with probability $\frac{\mu_1 + \mu_2}{\lambda + \mu_1 + \mu_2}$. Therefore the proportion of customers that complete their service is:
+
+\[\frac{\mu_1 + \mu_2}{\lambda + \mu_1 + \mu_2}\]
+
 # Problem 44
+
+* Cars pass Poisson process rate $\lambda$
+* Wait until no cars in next T units
+
+## Part a
+
+The probability that the waiting time is zero is the probability that no cars arrive in the next T time units:
+
+
+\[P(T_1>T) = 1-P(T_1<T)\]
+
+We know that $T_1$ is exponentially distributed, so we can use the CDF.
+
+\[P(T_1>T) = e^{-\lambda T}\]
+
+## Part b
+
+\[E[W] = E[E[W|T_1]] = \int_0^\infty E[W|T_1]\lambda e^{-\lambda x}dx\]
+
+Basically we keep waiting $E[W]$ until the next arrival time $T_n$ is longer than T. We know that all these arrival time R.V. T are i.i.d. with exponential distributions, so we get:
+
+\[E[W] =E[W]F_T(T)+E[T_1] = E[W]\int_0^T\lambda e^{-\lambda x}dx + \int_0^T \lambda x e^{-\lambda x}dx\]
+
+\[\int_0^T\lambda e^{-\lambda x}dx = 1-e^{-\lambda T}\]
+\[\int_0^T \lambda x e^{-\lambda x}dx =\frac{e^{-\lambda T}(e^{\lambda T}-\lambda T-1)}{\lambda} \]
+
+\[E[W] - E[W](1-e^{\lambda T}) = \frac{e^{-\lambda T}(e^{\lambda T}-\lambda T-1)}{\lambda}\]
+\[E[W](e^{\lambda T}) = \frac{e^{-\lambda T}(e^{\lambda T}-\lambda T-1)}{\lambda}\]
+\[E[W] = \frac{(e^{\lambda T}-\lambda T-1)}{\lambda}\]
