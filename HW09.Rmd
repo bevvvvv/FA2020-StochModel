@@ -89,7 +89,39 @@ Both A and B will receive new kidneys if the first kidney arrives before A dies 
 
 # Problem 35
 
+\[P(t < T_1 < t+h|T_1>t) = \lambda_{T_1}(t)h+o(h)\]
+\[P(t < T_1 < t+h|T_1>t)=\frac{P(t < T_1 < t+h,T_1>t)}{P(T_1>t)}\]
+
+Recall that $P(T_1>t)=P(N(t)=0)$
+
+\[P(t < T_1 < t+h|T_1>t)=\frac{P(N(t+h)=1,N(t)=0)}{P(N(t)=0)}=\frac{P(N(t+h)-N(t)=1)}{P(N(t)=0)}\]
+\[\lambda_{T_1}(t)h+o(h) = \frac{\lambda+o(h)}{e^{-\lambda t}}\]
+\[1 =e^{-\lambda t} + \lambda + \lambda_{T_1}(t)h\]
+
 # Problem 38
+
+## Part a
+
+Since $N_1$ and $N_2$ are independent Poisson processes, the join probability is simply the product of the marginal probabilities:
+
+\[P(N_1(t) = n,N_2(t) = m)=P(N_1(t)=n)P(N_2(t)=m)\]
+
+We know that the rates for each process are the sum of their component properties rates: $\lambda_{N_1} = \lambda_1 + \lambda_2$ and $\lambda_{N_2}=\lambda_2 + \lambda_3$.
+
+\[P(N_1(t)=n) = e^{-\lambda_{N_1} t}(\lambda_{N_1} t)^n/n!=e^{-(\lambda_1+\lambda_2)t}((\lambda_1+\lambda_2) t)^n/n!\]
+\[P(N_1(t)=n) = e^{-\lambda_{N_2} t}(\lambda_{N_2} t)^m/m!=e^{-(\lambda_2+\lambda_3)t}((\lambda_2+\lambda_3) t)^m/m!\]
+
+\[P(N_1(t) = n,N_2(t) = m)=e^{-(\lambda_1+2\lambda_2+\lambda_3)t}((\lambda_1+\lambda_2) t)^n((\lambda_2+\lambda_3) t)^m/(n!m!)\]
+
+## Part b
+
+\[Cov(N_1(t),N_2(t)) = E[N_1(t)N_2(t)]-E[N_1(t)]E[N_2(t)]\]
+
+We already know $E[N_1]=\lambda_1+\lambda_2$ and $E[N_2]=\lambda_2+\lambda_3$.
+
+\[E[N_1N_2]=\Sigma P(N_1,N_2)S_1^iS_2^j=(\lambda_1+\lambda_2)(\lambda_2+\lambda_3)\lambda_2\]
+
+\[Cov(N_1,N_2)=(\lambda_1+\lambda_2)(\lambda_2+\lambda_3)\lambda_2-(\lambda_1+\lambda_2)(\lambda_2+\lambda_3)=\lambda_2\]
 
 # Problem 39
 
