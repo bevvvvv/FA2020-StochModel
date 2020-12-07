@@ -135,6 +135,24 @@ This gives us an updated value of:
 
 # Problem 17
 
+We can treat this as a continuous time Markov Chain with states 0, 1, and 2 where state 0 is when the machine is up, state 1 is when the machine is down due to type 1 failure, and state 2 is when the machine is down due to a type 2 failure. We can write the system of equations for the limiting probabilities:
+
+\[\lambda\pi_0 = \mu_1\pi_1 + \mu_2\pi_2\]
+\[\mu_1\pi_1 = \lambda\pi_0p\]
+\[\mu_2\pi_2 =\lambda\pi_0(1-p)\]
+\[\pi_0 + \pi_1 + \pi_2 = 1\]
+
+We can solve this system:
+
+\[\pi_1 = \frac{\lambda p \pi_0}{\mu_1}\]
+\[\pi_2 = \frac{\lambda(1-p)\pi_0}{\mu_2}\]
+
+Now to get $\pi_0$ we can solve $\pi_0 = 1 - \pi_1 - \pi_2$:
+
+\[\pi_0 = 1 - \frac{\lambda p \pi_0}{\mu_1}  - \frac{\lambda(1-p)\pi_0}{\mu_2}\]
+
+The proportion of time spent down due a type 1 failure is $\frac{\lambda p \pi_0}{\mu_1}$. The proportion of time spent down due to a type 2 failure is $\frac{\lambda(1-p)\pi_0}{\mu_2}$. The proportion of time spent up is the remaining proportion leftover after the sum of the proportion of time spent down: $1 - \frac{\lambda p \pi_0}{\mu_1}  - \frac{\lambda(1-p)\pi_0}{\mu_2}$.
+
 # Problem 20
 
 # Problem 21
