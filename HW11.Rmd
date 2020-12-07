@@ -197,5 +197,15 @@ The total proportion of time with a working machine is:
 
 # Problem 21
 
+To solve this updated problem we just need to update our system of equations:
+
+\[\lambda\pi_0 = \mu\pi_1\]
+\[\lambda\pi_1 = 2\mu\pi_2\]
+\[\pi_0 + \pi_1 + \pi_2 = 1\]
+
+This will change the value of $\pi_2 = \frac12(\frac{\lambda}{\mu})^2\pi_1$, which will change the denominator of our proportion to:
+
+\[\pi_0 + \pi_1 = \frac{1 + \lambda/\mu}{(1 + \frac{\lambda}{\mu} + \frac12(\frac{\lambda}{\mu})^2 )}\]
+
 # Problem 23
 
