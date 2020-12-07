@@ -51,22 +51,12 @@ To solve the questions model the process as a Markov chain with $X(t)$ represent
 
 ## Part a
 
-While we are below capacity $X(t) \in \{1, 2\}$ the state can increase by 1 with a rate of 3 per hour and while there are customers we can decrease the state by 1 with a rate of 4 per hour. We can use these rates to get the following matrix representing the rate of change from state i (row) to j (col):
-
-$$
-P =\begin{bmatrix}
--3 & 3 & 0 \\
-4 & -7 & 3 \\
-0 & 4 & -4
-\end{bmatrix}
-$$
-
-Using this system we can solve for the stationary probabilities:
+While we are below capacity $X(t) \in \{1, 2\}$ the state can increase by 1 with a rate of 3 per hour and while there are customers we can decrease the state by 1 with a rate of 4 per hour. We can use these rates in this M/M/1 queue. This gives us the balanced equations:
 
 \[\pi_1 = \frac{3}{4}\pi_0\]
-\[\pi_2 = \frac{3}{4}\pi_11\]
+\[\pi_2 = \frac{3}{4}\pi_1\]
 
-This results in the probailities:
+This results in the probabilities:
 
 \[\pi_0=\frac{4^2}{4^3-3^3}\]
 \[\pi_1=\frac{3*4}{4^3-3^3}\]
@@ -99,6 +89,49 @@ These new systems give the proportion of customers entering the shop to be:
 The shop has 90.7 percent of the potential customers entering the shop when working twice as fast versus 75.7 percent of customers. This is a roughly 19.8 percent increase in business.
 
 # Problem 15
+
+Problem Constraints
+
+* two servers
+* servers work at exponential rate 2
+* customers arrive Poisson rate 3
+* system capacity of 3
+
+This problem can be modeled similarly to the previous problem on the barbershop, but instead there are now two servers as opposed to a single barber. That means this time we have a M/M/2/3 queue. This gives us the balanced equations:
+
+\[3\pi_0 = 2\pi_1\]
+\[3\pi_1 = 4\pi_2\]
+\[3\pi_2 = 4\pi_3\]
+
+Which can be updated to:
+
+\[\pi_1 = \frac32\pi_0\]
+\[\pi_2 = \frac34\pi_1 = \frac34\frac23\pi_0\]
+\[\pi_3 = \frac34\pi_2 = \frac34\frac34\frac32\pi_0\]
+
+This results in the probability for $\pi_3$:
+
+\[\pi_3 = \frac{(\frac34)^2\frac32}{1 + \frac34 + (\frac34)^2 +(\frac34)^3}\]
+
+## Part a
+
+The fraction of potential customers that enter the system is equal to the fraction of time not spent at capacity. This is $1-\pi_3$:
+
+\[1 - \frac{(\frac34)^2\frac32}{1 + \frac32 + \frac34\frac32 +(\frac34)^2\frac32}\]
+
+## Part b
+
+If there was a single server and his rate was twice as fast then we merely modify the first equation above to:
+
+\[3\pi_0 = 4\pi_1\]
+
+This yields a different value of $\pi_3$:
+
+\[\pi_3 = \frac34\pi_2 = \frac34\frac34\frac34\pi_0\]
+
+This gives us an updated value of:
+
+\[1 - \frac{(\frac34)^3}{1 + \frac34 + (\frac34)^2 +(\frac34)^3}\]
 
 # Problem 17
 
