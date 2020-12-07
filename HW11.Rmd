@@ -41,6 +41,63 @@ Since the time between infections are exponentially distributed with this rate $
 
 # Problem 13
 
+Problem Constraints
+
+* Barbershop with 2 chairs
+* Customers arrive Poisson process rate of 3 per hour
+* Serving times Exponential with mean 1/4
+
+To solve the questions model the process as a Markov chain with $X(t)$ representing the number of customers in the shop at time $t$. The state of this Markov chain can take on the values 0, 1, or 2, since the shop can serve a max of 2 customers.
+
+## Part a
+
+While we are below capacity $X(t) \in \{1, 2\}$ the state can increase by 1 with a rate of 3 per hour and while there are customers we can decrease the state by 1 with a rate of 4 per hour. We can use these rates to get the following matrix representing the rate of change from state i (row) to j (col):
+
+$$
+P =\begin{bmatrix}
+-3 & 3 & 0 \\
+4 & -7 & 3 \\
+0 & 4 & -4
+\end{bmatrix}
+$$
+
+Using this system we can solve for the stationary probabilities:
+
+\[\pi_1 = \frac{3}{4}\pi_0\]
+\[\pi_2 = \frac{3}{4}\pi_11\]
+
+This results in the probailities:
+
+\[\pi_0=\frac{4^2}{4^3-3^3}\]
+\[\pi_1=\frac{3*4}{4^3-3^3}\]
+\[\pi_2=\frac{3^2}{4^3-3^3}\]
+
+We can use these probabilities to find the average number of customers in the shop:
+
+\[\overline{n} = 0\pi_0+1\pi_1+2\pi_2 = \frac{3*4}{4^3-3^3} + 2\frac{3^2}{4^3-3^3} \approx  0.811\]
+
+The average number of customers in the barbershop in the long run is $0.811$.
+
+## Part b
+
+The proportion of potential customers that enter the shop is equal to the proportion of time the the shop is not at capacity. This is:
+
+\[\pi_0+\pi_1 = \frac{4^2}{4^3-3^3} + \frac{3*4}{4^3-3^3} \approx 0.757\]
+
+## Part c
+
+We can find the additional amount of business by adjusting our system of equations for when the barber works double speed:
+
+\[\pi_0=5\frac{8^2}{8^3-3^3}\]
+\[\pi_1=\frac{3*40}{8^3-3^3}\]
+\[\pi_2=5\frac{3^2}{8^3-3^3}\]
+
+These new systems give the proportion of customers entering the shop to be:
+
+\[5\frac{8^2}{8^3-3^3} +\frac{3*40}{8^3-3^3} \approx 0.907 \]
+
+The shop has 90.7 percent of the potential customers entering the shop when working twice as fast versus 75.7 percent of customers. This is a roughly 19.8 percent increase in business.
+
 # Problem 15
 
 # Problem 17
