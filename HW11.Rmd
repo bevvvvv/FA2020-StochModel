@@ -11,6 +11,34 @@ All questions come from Chapter 6.
 
 # Problem 5
 
+Problem Constraints
+
+* N individuals
+* Contact occurs with rate $\lambda$ (poisson)
+* Contact equally likely to involve any $\binom{N}{2}$ people
+* probability $p$ of infection (with infected and non-infected)
+* $X(t)$ is number of infected people
+
+## Part a
+
+Yes, $X(t)$ is a continuous time Markov chain. The number of infected people only depends on the previous number of infected people and therefore satisfies the Markovian property. The number of infected people will only be one more than the previous number and depends on when a contact occurs.
+
+## Part b
+
+This Markov chain is a birth process. As time increases the state can only go from state i to state i + 1. Since the process can never decrease it is a pure birth process with $\mu_n=0$.
+
+## Part c
+
+With $X(0) = 1$ we want to determine the amount of time it takes for all N individuals to become infected. At time t we take 2 individuals that come into contact. There are $\binom{N}{2}$ possible pairs, but if the pair have the same status, then nothing happens to the state. If one and only one is infected then the other is infected as well and the state increases by one with probability p.
+
+We can define our birth rate as a function of the rate of contact times the probability of infection times the probability of exactly one infected and one non-infected person being chosen.
+
+\[\lambda_n = \lambda p\frac{i(N-i)}{\binom{N}{2}}\]
+
+Since the time between infections are exponentially distributed with this rate $\lambda_n$ we can calcuate the mean time until total infection by summing the component means:
+
+\[\Sigma_{i=1}^{N-1}\frac{1}{\lambda_n} = \frac{\binom{N}{2}}{\lambda p}\Sigma_{i=1}^{N-1}\frac{1}{i(N-i)}\]
+
 # Problem 13
 
 # Problem 15
