@@ -209,3 +209,44 @@ This will change the value of $\pi_2 = \frac12(\frac{\lambda}{\mu})^2\pi_1$, whi
 
 # Problem 23
 
+Problem constraints
+
+* three machines, two repairmen
+* break down exponential mean 10
+* repair exponential mean 8
+
+## Part a
+
+We want to find the average number of machines that are not in use, which is the number of machines currently broken. We can formulate our problem as a birth-death process with 4 states representing the current number of broken machines (0 to 3). This gives us the rates:
+
+\[\lambda_0 = \frac3{10},\mu_1=\frac18\]
+\[\lambda_1 = \frac2{10},\mu_1=\frac28\]
+\[\lambda_2 = \frac1{10},\mu_1=\frac28\]
+
+To find the average number of machines down we will use the stationary probabilities, so let's setup our system:
+
+\[\frac3{10}\pi_0 =\frac18\pi_1\]
+\[(\frac2{10}+\frac18)\pi_1 = \frac28\pi_2 + \frac3{10}\pi_0\]
+\[(\frac1{10}+\frac28)\pi_2 = \frac28\pi_3+\frac2{10}\pi_1\]
+
+Solve the system:
+
+\[\pi_1 = 2.4\pi_0\]
+\[\pi_2 = 1.92\pi_0\]
+\[\pi_3 = 0.768\pi_0\]
+
+\[\pi_0 + 2.4\pi_0 + 1.92\pi_0 + 0.768\pi_0 = 1\]
+\[6.088\pi_0 = 1\]
+\[\pi_0 \approx 0.164\]
+
+The expected number of the machines down is in this case the mean of the stationary distribution:
+
+\[E[\text{machines down}] = \pi_1 + 2\pi_2 + 3\pi_3 = 0.394 + 0.630+0.378 \approx 1.40\]
+
+## Part b
+
+Now we want to determine the proportion of time that both repairmen are busy. This is when at least 2 machines are down so we can sum the long run probability of state 2 and 3:
+
+\[\pi_2 + \pi_3 = 0.315 + 0.126 \approx 0.441\]
+
+Both repairmen are busy approximately 44.1 percent of the time.
